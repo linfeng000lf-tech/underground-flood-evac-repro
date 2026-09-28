@@ -10,3 +10,6 @@ venv/
 *.log
 results/runs/*.jsonl
 ~$*
+
+*gh_kh*
+known_hosts
