@@ -1,0 +1,1163 @@
+[
+  {
+    "id": "SCN-001",
+    "name": "地铁车站·暴雨倒灌-基准",
+    "archetype": "北京地铁金安桥站“7·18”暴雨进水事件",
+    "event": "T1",
+    "water_source": "W1",
+    "space": "S1",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 300,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 25,
+      "start_min": 35
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 5.0,
+      "t_peak": 25.0,
+      "t_plat": 120.0,
+      "t_end": 300.0,
+      "d_peak": 0.58
+    },
+    "prior": {
+      "risk_band": "中",
+      "evac_success": 0.83,
+      "prob_band": "高"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-002",
+    "name": "地铁车站·暴雨倒灌-设防达标及时停运",
+    "archetype": "北京地铁金安桥站“7·18”暴雨进水事件",
+    "event": "T1",
+    "water_source": "W1",
+    "space": "S1",
+    "defense": "设防达标",
+    "drain": "排水充足",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 300,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 0,
+      "start_min": 5
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 5.0,
+      "t_peak": 25.0,
+      "t_plat": 120.0,
+      "t_end": 300.0,
+      "d_peak": 0.29
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.99,
+      "prob_band": "高"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-003",
+    "name": "地铁车站·暴雨倒灌-排水失效车站被淹",
+    "archetype": "北京地铁金安桥站“7·18”暴雨进水事件",
+    "event": "T1",
+    "water_source": "W1",
+    "space": "S1",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "乘客",
+      "scale": "大规模",
+      "n_ref": 1200,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 25,
+      "start_min": 35
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 5.0,
+      "t_peak": 25.0,
+      "t_plat": 120.0,
+      "t_end": 300.0,
+      "d_peak": 0.93
+    },
+    "prior": {
+      "risk_band": "中",
+      "evac_success": 0.73,
+      "prob_band": "高"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-004",
+    "name": "地铁区间·洪水漫灌-基准",
+    "archetype": "郑州地铁5号线“7·20”淹溺事件",
+    "event": "T1",
+    "water_source": "W1",
+    "space": "S2",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "乘客",
+      "scale": "大规模",
+      "n_ref": 500,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "未有效响应",
+      "alarm_min": null,
+      "start_min": null
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 3.0,
+      "t_peak": 15.0,
+      "t_plat": 90.0,
+      "t_end": 240.0,
+      "d_peak": 1.89
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.18,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 0,
+      "n_exits": 2,
+      "exit_width_m": 1.1,
+      "path_mean_m": 400,
+      "path_max_m": 800,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "纵向疏散平台/端门→相邻车站或竖井"
+    }
+  },
+  {
+    "id": "SCN-005",
+    "name": "地铁区间·洪水漫灌-预警前置区间停运",
+    "archetype": "郑州地铁5号线“7·20”淹溺事件",
+    "event": "T1",
+    "water_source": "W1",
+    "space": "S2",
+    "defense": "设防达标",
+    "drain": "排水充足",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 250,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 0,
+      "start_min": 3
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 3.0,
+      "t_peak": 15.0,
+      "t_plat": 90.0,
+      "t_end": 240.0,
+      "d_peak": 0.59
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.94,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 0,
+      "n_exits": 2,
+      "exit_width_m": 1.1,
+      "path_mean_m": 400,
+      "path_max_m": 800,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "纵向疏散平台/端门→相邻车站或竖井"
+    }
+  },
+  {
+    "id": "SCN-006",
+    "name": "地铁区间·洪水漫灌-挡水薄弱列车迫停",
+    "archetype": "郑州地铁5号线“7·20”淹溺事件",
+    "event": "T1",
+    "water_source": "W1",
+    "space": "S2",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "乘客",
+      "scale": "大规模",
+      "n_ref": 500,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 15,
+      "start_min": 25
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 3.0,
+      "t_peak": 15.0,
+      "t_plat": 90.0,
+      "t_end": 240.0,
+      "d_peak": 1.13
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.67,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 0,
+      "n_exits": 2,
+      "exit_width_m": 1.1,
+      "path_mean_m": 400,
+      "path_max_m": 800,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "纵向疏散平台/端门→相邻车站或竖井"
+    }
+  },
+  {
+    "id": "SCN-007",
+    "name": "地下车库·积水倒灌-基准",
+    "archetype": "湖南龙山龙领国际小区地下车库洪水倒灌致人死亡事件",
+    "event": "T2",
+    "water_source": "W2",
+    "space": "S3",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "公众",
+      "scale": "中等规模",
+      "n_ref": 40,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 60,
+      "start_min": 70
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 15.0,
+      "t_peak": 60.0,
+      "t_plat": 240.0,
+      "t_end": 600.0,
+      "d_peak": 0.53
+    },
+    "prior": {
+      "risk_band": "中",
+      "evac_success": 0.84,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 2,
+      "exit_width_m": 1.4,
+      "path_mean_m": 60,
+      "path_max_m": 120,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "人行疏散楼梯→地面；坡道禁行"
+    }
+  },
+  {
+    "id": "SCN-008",
+    "name": "地下车库·积水倒灌-响应及时封库",
+    "archetype": "湖南龙山龙领国际小区地下车库洪水倒灌致人死亡事件",
+    "event": "T2",
+    "water_source": "W2",
+    "space": "S3",
+    "defense": "设防达标",
+    "drain": "排水充足",
+    "population": {
+      "type": "公众",
+      "scale": "小规模",
+      "n_ref": 8,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 10,
+      "start_min": 15
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 15.0,
+      "t_peak": 60.0,
+      "t_plat": 240.0,
+      "t_end": 600.0,
+      "d_peak": 0.2
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.99,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 2,
+      "exit_width_m": 1.4,
+      "path_mean_m": 60,
+      "path_max_m": 120,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "人行疏散楼梯→地面；坡道禁行"
+    }
+  },
+  {
+    "id": "SCN-009",
+    "name": "地下车库·积水倒灌-通知失效业主困库",
+    "archetype": "湖南龙山龙领国际小区地下车库洪水倒灌致人死亡事件",
+    "event": "T2",
+    "water_source": "W2",
+    "space": "S3",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "公众",
+      "scale": "中等规模",
+      "n_ref": 40,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "未有效响应",
+      "alarm_min": null,
+      "start_min": null
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 15.0,
+      "t_peak": 60.0,
+      "t_plat": 240.0,
+      "t_end": 600.0,
+      "d_peak": 1.24
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.36,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 2,
+      "exit_width_m": 1.4,
+      "path_mean_m": 60,
+      "path_max_m": 120,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "人行疏散楼梯→地面；坡道禁行"
+    }
+  },
+  {
+    "id": "SCN-010",
+    "name": "地下商业·洪水涌入-基准",
+    "archetype": "2007年济南银座地下购物广场水灾",
+    "event": "T2",
+    "water_source": "W2",
+    "space": "S4",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "公众",
+      "scale": "大规模",
+      "n_ref": 2000,
+      "familiarity": "熟悉度中"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 5,
+      "start_min": 10
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 10.0,
+      "t_peak": 30.0,
+      "t_plat": 180.0,
+      "t_end": 420.0,
+      "d_peak": 0.75
+    },
+    "prior": {
+      "risk_band": "中",
+      "evac_success": 0.9,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 5000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 150,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "分散安全出口→地面"
+    }
+  },
+  {
+    "id": "SCN-011",
+    "name": "地下商业·洪水涌入-客流高峰响应滞后",
+    "archetype": "2007年济南银座地下购物广场水灾",
+    "event": "T2",
+    "water_source": "W2",
+    "space": "S4",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "公众",
+      "scale": "大规模",
+      "n_ref": 2000,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 30,
+      "start_min": 40
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 10.0,
+      "t_peak": 30.0,
+      "t_plat": 180.0,
+      "t_end": 420.0,
+      "d_peak": 1.12
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.68,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 5000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 150,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "分散安全出口→地面"
+    }
+  },
+  {
+    "id": "SCN-012",
+    "name": "地下商业·洪水涌入-预案完备快速疏散",
+    "archetype": "2007年济南银座地下购物广场水灾",
+    "event": "T2",
+    "water_source": "W2",
+    "space": "S4",
+    "defense": "设防达标",
+    "drain": "排水充足",
+    "population": {
+      "type": "公众",
+      "scale": "大规模",
+      "n_ref": 2000,
+      "familiarity": "熟悉度中"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 5,
+      "start_min": 10
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 10.0,
+      "t_peak": 30.0,
+      "t_plat": 180.0,
+      "t_end": 420.0,
+      "d_peak": 0.29
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.99,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 5000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 150,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "分散安全出口→地面"
+    }
+  },
+  {
+    "id": "SCN-013",
+    "name": "管线暗渠·暴洪-基准",
+    "archetype": "深圳“4·11”短时极端强降水导致暗渠清淤作业人员淹溺事件",
+    "event": "T1",
+    "water_source": "W1",
+    "space": "S5",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "作业人员",
+      "scale": "小规模",
+      "n_ref": 3,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "未有效响应",
+      "alarm_min": null,
+      "start_min": null
+    },
+    "depth": {
+      "d0": 0.05,
+      "t_seep": 2.0,
+      "t_peak": 10.0,
+      "t_plat": 60.0,
+      "t_end": 180.0,
+      "d_peak": 4.19
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.05,
+      "prob_band": "低"
+    },
+    "geometry": {
+      "area_m2": 0,
+      "n_exits": 2,
+      "exit_width_m": 0.7,
+      "path_mean_m": 100,
+      "path_max_m": 300,
+      "exit_specific_flow_p_m_min": 40,
+      "evac_way": "检查井/安全口垂直撤离"
+    }
+  },
+  {
+    "id": "SCN-014",
+    "name": "管线暗渠·暴洪-作业预警及时撤离",
+    "archetype": "深圳“4·11”短时极端强降水导致暗渠清淤作业人员淹溺事件",
+    "event": "T1",
+    "water_source": "W1",
+    "space": "S5",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "作业人员",
+      "scale": "小规模",
+      "n_ref": 3,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 0,
+      "start_min": 2
+    },
+    "depth": {
+      "d0": 0.05,
+      "t_seep": 2.0,
+      "t_peak": 10.0,
+      "t_plat": 60.0,
+      "t_end": 180.0,
+      "d_peak": 2.01
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.55,
+      "prob_band": "低"
+    },
+    "geometry": {
+      "area_m2": 0,
+      "n_exits": 2,
+      "exit_width_m": 0.7,
+      "path_mean_m": 100,
+      "path_max_m": 300,
+      "exit_specific_flow_p_m_min": 40,
+      "evac_way": "检查井/安全口垂直撤离"
+    }
+  },
+  {
+    "id": "SCN-015",
+    "name": "施工隧道·突水突泥-基准",
+    "archetype": "广东省佛山市轨道交通2号线一期工程“2·7”透水坍塌重大事故",
+    "event": "T5",
+    "water_source": "W4",
+    "space": "S2",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 250,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 12,
+      "start_min": 22
+    },
+    "depth": {
+      "d0": 0.05,
+      "t_seep": 2.0,
+      "t_peak": 12.0,
+      "t_plat": 60.0,
+      "t_end": 200.0,
+      "d_peak": 1.29
+    },
+    "prior": {
+      "risk_band": "中",
+      "evac_success": 0.63,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 0,
+      "n_exits": 2,
+      "exit_width_m": 1.1,
+      "path_mean_m": 400,
+      "path_max_m": 800,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "纵向疏散平台/端门→相邻车站或竖井"
+    }
+  },
+  {
+    "id": "SCN-016",
+    "name": "施工隧道·突水突泥-监测预警及时撤场",
+    "archetype": "广东省佛山市轨道交通2号线一期工程“2·7”透水坍塌重大事故",
+    "event": "T5",
+    "water_source": "W4",
+    "space": "S2",
+    "defense": "设防达标",
+    "drain": "排水充足",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 250,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 0,
+      "start_min": 2
+    },
+    "depth": {
+      "d0": 0.05,
+      "t_seep": 2.0,
+      "t_peak": 12.0,
+      "t_plat": 60.0,
+      "t_end": 200.0,
+      "d_peak": 0.53
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.96,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 0,
+      "n_exits": 2,
+      "exit_width_m": 1.1,
+      "path_mean_m": 400,
+      "path_max_m": 800,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "纵向疏散平台/端门→相邻车站或竖井"
+    }
+  },
+  {
+    "id": "SCN-017",
+    "name": "施工隧道·突水突泥-突水突发撤离不及",
+    "archetype": "广东省佛山市轨道交通2号线一期工程“2·7”透水坍塌重大事故",
+    "event": "T5",
+    "water_source": "W4",
+    "space": "S2",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 250,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "未有效响应",
+      "alarm_min": null,
+      "start_min": null
+    },
+    "depth": {
+      "d0": 0.05,
+      "t_seep": 2.0,
+      "t_peak": 12.0,
+      "t_plat": 60.0,
+      "t_end": 200.0,
+      "d_peak": 1.85
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.19,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 0,
+      "n_exits": 2,
+      "exit_width_m": 1.1,
+      "path_mean_m": 400,
+      "path_max_m": 800,
+      "exit_specific_flow_p_m_min": 60,
+      "evac_way": "纵向疏散平台/端门→相邻车站或竖井"
+    }
+  },
+  {
+    "id": "SCN-018",
+    "name": "有限空间·作业淹溺-基准",
+    "archetype": "天心新昌路建设项目“7·20”一般淹溺事故",
+    "event": "T7",
+    "water_source": "W5",
+    "space": "S7",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "作业人员",
+      "scale": "小规模",
+      "n_ref": 1,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 8,
+      "start_min": 18
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 1.0,
+      "t_peak": 8.0,
+      "t_plat": 40.0,
+      "t_end": 120.0,
+      "d_peak": 0.88
+    },
+    "prior": {
+      "risk_band": "中",
+      "evac_success": 0.74,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 20,
+      "n_exits": 1,
+      "exit_width_m": 0.6,
+      "path_mean_m": 5,
+      "path_max_m": 15,
+      "exit_specific_flow_p_m_min": 30,
+      "evac_way": "爬梯/三脚架垂直提升"
+    }
+  },
+  {
+    "id": "SCN-019",
+    "name": "有限空间·作业淹溺-盲目施救伤亡扩大",
+    "archetype": "天心新昌路建设项目“7·20”一般淹溺事故",
+    "event": "T7",
+    "water_source": "W5",
+    "space": "S7",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "作业人员",
+      "scale": "小规模",
+      "n_ref": 1,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "未有效响应",
+      "alarm_min": null,
+      "start_min": null
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 1.0,
+      "t_peak": 8.0,
+      "t_plat": 40.0,
+      "t_end": 120.0,
+      "d_peak": 1.56
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.27,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 20,
+      "n_exits": 1,
+      "exit_width_m": 0.6,
+      "path_mean_m": 5,
+      "path_max_m": 15,
+      "exit_specific_flow_p_m_min": 30,
+      "evac_way": "爬梯/三脚架垂直提升"
+    }
+  },
+  {
+    "id": "SCN-020",
+    "name": "有限空间·作业淹溺-作业规范监护到位",
+    "archetype": "天心新昌路建设项目“7·20”一般淹溺事故",
+    "event": "T7",
+    "water_source": "W5",
+    "space": "S7",
+    "defense": "设防达标",
+    "drain": "排水充足",
+    "population": {
+      "type": "作业人员",
+      "scale": "小规模",
+      "n_ref": 1,
+      "familiarity": "熟悉度高"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 0,
+      "start_min": 1
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 1.0,
+      "t_peak": 8.0,
+      "t_plat": 40.0,
+      "t_end": 120.0,
+      "d_peak": 0.4
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.99,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 20,
+      "n_exits": 1,
+      "exit_width_m": 0.6,
+      "path_mean_m": 5,
+      "path_max_m": 15,
+      "exit_specific_flow_p_m_min": 30,
+      "evac_way": "爬梯/三脚架垂直提升"
+    }
+  },
+  {
+    "id": "SCN-021",
+    "name": "结构/管涌渗漏-基准",
+    "archetype": "杭州地铁1号线金沙湖站“5·18”管涌进水事件",
+    "event": "T2",
+    "water_source": "W2",
+    "space": "S1",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 300,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 15,
+      "start_min": 20
+    },
+    "depth": {
+      "d0": 0.02,
+      "t_seep": 20.0,
+      "t_peak": 60.0,
+      "t_plat": 120.0,
+      "t_end": 400.0,
+      "d_peak": 0.53
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.96,
+      "prob_band": "低"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-022",
+    "name": "结构/管涌渗漏-管涌发展响应滞后",
+    "archetype": "杭州地铁1号线金沙湖站“5·18”管涌进水事件",
+    "event": "T2",
+    "water_source": "W2",
+    "space": "S1",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "乘客",
+      "scale": "大规模",
+      "n_ref": 1200,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 60,
+      "start_min": 70
+    },
+    "depth": {
+      "d0": 0.02,
+      "t_seep": 20.0,
+      "t_peak": 60.0,
+      "t_plat": 120.0,
+      "t_end": 400.0,
+      "d_peak": 1.03
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.7,
+      "prob_band": "低"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-023",
+    "name": "台风伴生内涝-基准",
+    "archetype": "福州地铁因台风“海葵”导致车站周边多处积水全线网车站暂停运营事件",
+    "event": "T3",
+    "water_source": "W1",
+    "space": "S1",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "乘客",
+      "scale": "大规模",
+      "n_ref": 1200,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 5,
+      "start_min": 10
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 10.0,
+      "t_peak": 45.0,
+      "t_plat": 300.0,
+      "t_end": 700.0,
+      "d_peak": 0.71
+    },
+    "prior": {
+      "risk_band": "中",
+      "evac_success": 0.91,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-024",
+    "name": "台风伴生内涝-潮位顶托排水失效",
+    "archetype": "福州地铁因台风“海葵”导致车站周边多处积水全线网车站暂停运营事件",
+    "event": "T3",
+    "water_source": "W1",
+    "space": "S1",
+    "defense": "设防失效",
+    "drain": "排水失效",
+    "population": {
+      "type": "乘客",
+      "scale": "大规模",
+      "n_ref": 1200,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 45,
+      "start_min": 55
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 10.0,
+      "t_peak": 45.0,
+      "t_plat": 300.0,
+      "t_end": 700.0,
+      "d_peak": 1.29
+    },
+    "prior": {
+      "risk_band": "高",
+      "evac_success": 0.63,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-025",
+    "name": "台风伴生内涝-预警前置网停运",
+    "archetype": "福州地铁因台风“海葵”导致车站周边多处积水全线网车站暂停运营事件",
+    "event": "T3",
+    "water_source": "W1",
+    "space": "S1",
+    "defense": "设防达标",
+    "drain": "排水充足",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 300,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 5,
+      "start_min": 10
+    },
+    "depth": {
+      "d0": 0.03,
+      "t_seep": 10.0,
+      "t_peak": 45.0,
+      "t_plat": 300.0,
+      "t_end": 700.0,
+      "d_peak": 0.3
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.99,
+      "prob_band": "中"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-026",
+    "name": "管道爆裂(给水/消防)-基准",
+    "archetype": "上海地铁天潼路站消防水管爆裂漏水事件",
+    "event": "T8",
+    "water_source": "W7",
+    "space": "S1",
+    "defense": "设防达标",
+    "drain": "排水充足",
+    "population": {
+      "type": "乘客",
+      "scale": "中等规模",
+      "n_ref": 300,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应及时",
+      "alarm_min": 0,
+      "start_min": 2
+    },
+    "depth": {
+      "d0": 0.02,
+      "t_seep": 2.0,
+      "t_peak": 15.0,
+      "t_plat": 60.0,
+      "t_end": 150.0,
+      "d_peak": 0.1
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.99,
+      "prob_band": "低"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  },
+  {
+    "id": "SCN-027",
+    "name": "管道爆裂(给水/消防)-夜间爆裂发现滞后",
+    "archetype": "上海地铁天潼路站消防水管爆裂漏水事件",
+    "event": "T8",
+    "water_source": "W7",
+    "space": "S1",
+    "defense": "设防薄弱",
+    "drain": "排水一般",
+    "population": {
+      "type": "乘客",
+      "scale": "小规模",
+      "n_ref": 50,
+      "familiarity": "熟悉度低"
+    },
+    "response": {
+      "timing": "响应滞后",
+      "alarm_min": 15,
+      "start_min": 25
+    },
+    "depth": {
+      "d0": 0.02,
+      "t_seep": 2.0,
+      "t_peak": 15.0,
+      "t_plat": 60.0,
+      "t_end": 150.0,
+      "d_peak": 0.31
+    },
+    "prior": {
+      "risk_band": "低",
+      "evac_success": 0.9,
+      "prob_band": "低"
+    },
+    "geometry": {
+      "area_m2": 3000,
+      "n_exits": 4,
+      "exit_width_m": 2.0,
+      "path_mean_m": 80,
+      "path_max_m": 140,
+      "exit_specific_flow_p_m_min": 75,
+      "evac_way": "站台→站厅→出入口楼扶梯"
+    }
+  }
+]

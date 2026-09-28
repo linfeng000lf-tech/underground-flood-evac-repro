@@ -1,0 +1,4 @@
+﻿引擎,依赖占比,有效AUC折,AUC_CV,Top5因子
+heur,0.243,5/5,0.826,"播报时机, rise_rate, alarm_min, 角色, 积水速率"
+deepseek,0.007,4/5,0.924,"rise_rate, d_peak, 播报时机, exit_width, 年龄"
+qwen,0.067,5/5,0.891,"播报时机, rise_rate, d_peak, 角色, alarm_min"

@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+# secrets
+.env
+*.key
+# logs and temp
+*.log
+results/runs/*.jsonl
+~$*
