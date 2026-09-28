@@ -22,8 +22,8 @@ included; you must supply your own keys in a local `.env` file.
 - `results/runs/` - aggregated run-level and individual-level outputs (including the
   281,600 labelled individual records), real-LLM replication tables, association rules,
   ML metrics, SHAP values and the adverse-scenario family.
-- `docs/` - reproduction guide, data dictionary, validity and cross-model reports, and
-  notes on the scientific basis of the parameters.
+- `docs/` - three-layer validity report, cross-model replication report,
+  extraction-quality audit, and notes on the scientific basis of the parameters.
 
 ## Environment
 
