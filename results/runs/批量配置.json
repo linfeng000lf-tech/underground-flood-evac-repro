@@ -1,0 +1,1922 @@
+[
+ {
+  "cid": "EXP-001",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-002",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-003",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-004",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-005",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-006",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-007",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-008",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-009",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-010",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-011",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-012",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-013",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 60,
+   "fam_frac": 0.6,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-014",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-015",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-016",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-017",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-018",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-019",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-020",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-021",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-022",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-023",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-024",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-025",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-026",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-027",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-028",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-029",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-030",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-031",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-032",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-033",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-034",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-035",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.6,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-036",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-037",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-038",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-039",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-040",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-041",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-042",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-043",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-044",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-045",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-046",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-047",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-048",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-049",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-050",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-051",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-052",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.6,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-053",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-054",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-055",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-056",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-057",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-058",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-059",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-060",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 60,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-061",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.6,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-062",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-063",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-064",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-065",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-066",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-067",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-068",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-069",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-070",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-071",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-072",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.4,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-073",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-074",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-075",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-076",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-077",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-078",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-079",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-080",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-081",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-082",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-083",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-084",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-085",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 60,
+   "fam_frac": 0.4,
+   "alarm_min": null,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-086",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-087",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-088",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-089",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 140,
+   "fam_frac": 0.6,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 45
+   }
+  }
+ },
+ {
+  "cid": "EXP-090",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-091",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 10,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-092",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "interval",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-093",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 140,
+   "fam_frac": 0.4,
+   "alarm_min": 10,
+   "exit_width": 4.0,
+   "rescue_min": 50,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.2,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-094",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 60,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 20,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 0.6,
+    "t_peak": 90
+   }
+  }
+ },
+ {
+  "cid": "EXP-095",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "wind",
+   "n": 240,
+   "fam_frac": 0.2,
+   "alarm_min": null,
+   "exit_width": 4.0,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ },
+ {
+  "cid": "EXP-096",
+  "cfg": {
+   "sid": "SCN-001",
+   "entry_override": "gate_A",
+   "n": 240,
+   "fam_frac": 0.6,
+   "alarm_min": 40,
+   "exit_width": 0.8,
+   "rescue_min": 35,
+   "depth_override": {
+    "d0": 0.03,
+    "t_seep": 5,
+    "t_plat": 160,
+    "t_end": 480,
+    "d_peak": 1.8,
+    "t_peak": 20
+   }
+  }
+ }
+]

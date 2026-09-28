@@ -12,7 +12,8 @@ included; you must supply your own keys in a local `.env` file.
 ## Repository structure
 
 - `code/` - simulation, cognitive agent, experiment design, validation, association
-  rules, machine-learning models, SHAP analysis, real-LLM replication, adverse scenarios.
+  rules, machine-learning models, SHAP analysis, real-LLM replication, adverse scenarios,
+  and offline sensitivity/intermediate-condition tests.
 - `prompts/` - system and user prompt templates used for scenario extraction and for
   agent decision-making.
 - `data/knowledge/` - flood scenario ontology, knowledge base, population profiles,
@@ -21,7 +22,8 @@ included; you must supply your own keys in a local `.env` file.
   scenario library, four-stage water-depth templates, data dictionary.
 - `results/runs/` - aggregated run-level and individual-level outputs (including the
   281,600 labelled individual records), real-LLM replication tables, association rules,
-  ML metrics, SHAP values and the adverse-scenario family.
+  ML metrics, SHAP values, the adverse-scenario family, and the sensitivity and
+  standardized-deviation tables underlying the manuscript's Table 4 and Table 2.
 - `docs/` - three-layer validity report, cross-model replication report,
   extraction-quality audit, and notes on the scientific basis of the parameters.
 
@@ -40,6 +42,9 @@ included; you must supply your own keys in a local `.env` file.
 3. Behaviour mining: `code/41` to `code/48` (features, descriptive statistics,
    association rules, ML models, SHAP, cross-validation, intervention thresholds).
 4. Real-LLM replication and adverse scenarios: `code/50`, `code/55` to `code/57`.
+5. Sensitivity and intermediate-condition tests (offline; reproduce Table 4 and the
+   monotonic broadcast/familiarity results): `code/66_sensitivity.py` and
+   `code/67_sensitivity_addon.py`. These read the shipped `results/runs/批量配置.json`.
 
 A Windows entry point is provided in `一键复现.bat`.
 

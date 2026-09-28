@@ -111,6 +111,10 @@ echo --- [23] Cross validation ---
 "%PY%" code\47_cross_validate.py || goto failed
 echo --- [24] Sandbox thresholds ---
 "%PY%" code\48_sandbox_thresholds.py || goto failed
+echo --- [25] Sensitivity and intermediate conditions (Table 4) ---
+"%PY%" code\66_sensitivity.py || goto failed
+echo --- [26] Sensitivity addon (rescue capacity; branch-B sweep) ---
+"%PY%" code\67_sensitivity_addon.py || goto failed
 goto success
 
 :full_llm
