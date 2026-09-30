@@ -1,50 +1,46 @@
-# ===== 城市地下空间水灾人群疏散 LLM 智能体研究：依赖冻结清单 =====
-# Python 3.10（conda 环境 flood）；获取日期 2026-09-23
-# 安装：conda create -n flood python=3.10 -y && conda activate flood
-#       pip install -r requirements.txt
-# 完整可复现锁（含传递依赖）可用：pip freeze > requirements-lock.txt
+# ===== Urban underground-space flood crowd evacuation with LLM agents: pinned dependencies =====
+# Python 3.10 (conda env "flood"); pinned 2026-09-23
+# Setup: conda create -n flood python=3.10 -y && conda activate flood
+#        pip install -r requirements.txt
+# A full transitive lock can be produced with: pip freeze > requirements-lock.txt
 
-# ----- 数据处理 -----
+# ----- Data processing -----
 pandas==2.3.3
 numpy==2.2.6
 openpyxl==3.1.5
 scipy==1.15.3
 
-# ----- 中文文本处理 -----
-jieba==0.42.1
-
-# ----- 大语言模型调用与配置 -----
+# ----- LLM API calls and configuration -----
 openai==3.19.0
 python-dotenv==1.2.3
 
-# ----- 结构化输出与校验 -----
+# ----- Structured output and validation -----
 pydantic==2.13.5
 jsonschema==4.26.0
 
-# ----- 空间网络与基于主体建模（ABM）-----
+# ----- Spatial network and agent-based modelling -----
 networkx==3.4.2
 Mesa==3.0.3
 
-# ----- 机器学习 / 关联规则 / 可解释性 -----
+# ----- Machine learning / association rules / interpretability -----
 scikit-learn==1.7.2
 xgboost==3.2.0
 mlxtend==0.23.4
 shap==0.49.1
 
-# ----- 出图 -----
+# ----- Plotting (analysis outputs) -----
 matplotlib==3.10.9
-seaborn==0.13.2
 
-# ----- 进度 / 并行 / 持久化 -----
+# ----- Progress / parallelism -----
 tqdm==4.70.1
 joblib==1.6.0
 
-# ----- 资料读取与文档生成 -----
-pymupdf==1.28.2
-python-docx==1.2.0
-
-# ----- 交互式探索 -----
-jupyter==1.1.1
-
-# ===== 可选 / 加分（默认不安装）=====
-# pgmpy            # 贝叶斯网络（第6章加分），安装：pip install pgmpy
+# ===== Optional (NOT required for the shipped reproduction) =====
+# The packages below support raw-source parsing or interactive exploration only.
+# jieba        # Chinese word segmentation (raw-text cleaning, not shipped)
+# seaborn      # extra statistical styling
+# pymupdf      # parsing raw source PDF cases/plans (raw inputs are not shipped)
+# python-docx  # building manuscript/report documents
+# jupyter      # interactive exploration
+# solara       # the removed web animation platform
+# pgmpy        # Bayesian networks (optional extension)

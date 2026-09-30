@@ -10,6 +10,8 @@ venv/
 *.log
 results/runs/*.jsonl
 ~$*
+# unit-test regenerated outputs
+results/runs/SCN-001_unittest_*.xlsx
 
 *gh_kh*
 known_hosts

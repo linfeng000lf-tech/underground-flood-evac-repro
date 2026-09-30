@@ -5,7 +5,6 @@ rem ROOT is automatically set to the folder containing this .bat (portable; no h
 set "ROOT=%~dp0"
 rem Use the Python on your PATH; activate your conda/venv (with requirements.txt) before running.
 set "PY=python"
-set "SOLARA=solara"
 set "PATH=%LOCALAPPDATA%\Programs\Python;%PATH%"
 cd /d "%ROOT%"
 
@@ -16,19 +15,17 @@ echo    Underground Flood Crowd Evacuation Platform - Reproduce
 echo ============================================================
 echo.
 echo   [1] Quick evacuation demo (offline, about 1 min)
-echo   [2] Web visualization platform (real-time animation)
-echo   [3] Full process (heuristic/offline, no API cost, long)
-echo   [4] Full process + real LLM (API cost, optional)
-echo   [5] Environment self-check (Python / packages / LLM link)
+echo   [2] Full process (heuristic/offline, no API cost, long)
+echo   [3] Full process + real LLM (API cost, optional)
+echo   [4] Environment self-check (Python / packages / LLM link)
 echo   [0] Exit
 echo.
 set "choice="
 set /p choice=Enter the option number and press Enter:
 if "%choice%"=="1" goto quick
-if "%choice%"=="2" goto web
-if "%choice%"=="3" goto full
-if "%choice%"=="4" goto full_llm
-if "%choice%"=="5" goto check
+if "%choice%"=="2" goto full
+if "%choice%"=="3" goto full_llm
+if "%choice%"=="4" goto check
 if "%choice%"=="0" goto end
 goto menu
 
@@ -36,15 +33,6 @@ goto menu
 cls
 echo ===== Quick evacuation demo (SCN-001, offline) =====
 "%PY%" code\26_mesa_engine.py --sid SCN-001 --n 40 --steps 360
-goto donemenu
-
-:web
-cls
-echo ===== Web visualization platform =====
-echo Opening http://127.0.0.1:8767
-echo Close this window or press Ctrl+C to stop. If the page does not open, visit the address manually.
-start "" http://127.0.0.1:8767
-"%SOLARA%" run code\28_viz.py --host 127.0.0.1 --port 8767
 goto donemenu
 
 :check

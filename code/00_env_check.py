@@ -5,12 +5,12 @@ import sys, importlib
 print('Python:', sys.version.split()[0], '|', sys.executable)
 
 mods = [
-    ('pandas', None), ('numpy', None), ('openpyxl', None), ('jieba', None),
+    ('pandas', None), ('numpy', None), ('openpyxl', None), ('scipy', None),
     ('openai', None), ('dotenv', 'python-dotenv'), ('pydantic', None),
-    ('networkx', None), ('mesa', None),
+    ('jsonschema', None), ('networkx', None), ('mesa', None),
     ('sklearn', 'scikit-learn'), ('xgboost', None), ('mlxtend', None),
-    ('shap', None), ('matplotlib', None), ('seaborn', None),
-    ('tqdm', None), ('joblib', None), ('fitz', 'pymupdf'), ('docx', 'python-docx'),
+    ('shap', None), ('matplotlib', None),
+    ('tqdm', None), ('joblib', None),
 ]
 ok, fail = 0, 0
 for m, pkg in mods:

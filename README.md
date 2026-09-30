@@ -13,7 +13,10 @@ included; you must supply your own keys in a local `.env` file.
 
 - `code/` - simulation, cognitive agent, experiment design, validation, association
   rules, machine-learning models, SHAP analysis, real-LLM replication, adverse scenarios,
-  and offline sensitivity/intermediate-condition tests.
+  and offline sensitivity/intermediate-condition tests. Offline unit tests
+  (`test_ch4.py`, `test_llm_utils.py`) verify code correctness. Standalone figure/diagram,
+  web-animation and manuscript/report generators are intentionally excluded; their
+  rendered outputs remain under `results/` and `docs/`.
 - `prompts/` - system and user prompt templates used for scenario extraction and for
   agent decision-making.
 - `data/knowledge/` - flood scenario ontology, knowledge base, population profiles,
