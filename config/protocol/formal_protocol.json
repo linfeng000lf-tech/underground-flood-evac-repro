@@ -1,0 +1,35 @@
+{
+  "batch_id": "FORMAL_PAIR25_PLACEHOLDER",
+  "status": "DRAFT_FROZEN_OFFLINE",
+  "inherits_freeze": "code/versions/v20261018_cache1",
+  "inherit_note": "引擎代码、静态输入、提示词、知识库、依赖与库版本全部沿用 v20261018_cache1 的哈希；运行前先按 cache1/manifest.json 校验 21 个冻结文件 MATCH，不一致即停止，不混用未冻结副本。本文件只登记新批次的种子、配对与运行时记录位。",
+  "purpose": "修正统一引擎下的同协议三模型比较：规则参考 + DeepSeek + Qwen，同 cid 同 seed 配对；知识消融、两项敏感性另立独立版本，不替换本主模型。",
+  "scenarios": {
+    "main_paired25": {
+      "cids_ref": "v20261018_cache1/protocol.json -> scenarios.main_paired25.cids (25)",
+      "seeds_list": [20261011, 20261023, 20261035, 20261047, 20261059, 20261071],
+      "seed_note": "8位固定整数、非时钟、可复现；基值202610+间隔12，6个独立RNG流；不复用20241001-06。seed锁画像序列与初始位置，不传入LLM采样。",
+      "models": {
+        "rule_reference": {"use_llm": false, "note": "同引擎同cid同seed新重跑，不直接搬旧0.711；旧0.711为已发表规则主结果保留"},
+        "deepseek-chat": {"provider": "deepseek", "base_url": "https://api.deepseek.com"},
+        "qwen-plus": {"provider": "qwen", "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1"}
+      },
+      "pairing": "规则参考/DS/QW 三模型共用同一 (cid, seed)，同一批人与初始位置，仅决策层不同；跨模型差值同 cid 同 seed 配对。"
+    }
+  },
+  "observation_endpoint": "配对25 T=170min（max(150,max rmin=50)+window120）；不利族(rmin=90)不同T分开报告。",
+  "outcomes_five_classes": "self_evacuated / rescued(instantaneous_guided + capacity_rescue) / deceased / stranded / alive_in；partial/failed 完整报告，只在 complete 上算主结局率。",
+  "runtime_record_slots": {
+    "model_version_header": "每次调用记录响应头/返回的模型版本标识，填入运行日志；协议不锁定远端快照",
+    "request_id": "记录请求ID",
+    "raw_response": "留存原始响应体与 parsed_response；失败响应也落盘",
+    "usage": "prompt/completion/total tokens 按事件累加并独立持久化账本"
+  },
+  "forbidden": [
+    "不为模型差异改规则/提示词/阈值",
+    "不扩厂商/扩情景",
+    "不把缓存复用当独立LLM重复，不静默回退规则模型掩盖API失败",
+    "不恢复旧P1完整轨迹",
+    "partial 不进最终结局比较"
+  ]
+}

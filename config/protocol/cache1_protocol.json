@@ -1,0 +1,261 @@
+{
+  "batch_id": "NEWBATCH_PLACEHOLDER",
+  "status": "AUTHORIZED_PREEXPERIMENT",
+  "note": "新随机LLM实验协议草案；预算/授权项未填，禁止发起任何API请求。协议改变须新建批次，不与旧批次合并。",
+  "engine_freeze": {
+    "manifest_version": "v20261018_cache1",
+    "manifest_path": "E:\\underground-flood-evac\\code\\versions\\v20261018_cache1\\manifest.json",
+    "key_code_hashes": {
+      "code/22_space_env.py": "aeeb42ee0dfe8256ac647ea7b5c982fb74bac7fc1e9971123349403d3ec88974",
+      "code/23_profiles.py": "54eddb5d824859475f22c838347d0f27b7c5aa566e863cf0d35e467d82f803eb",
+      "code/24_knowledge_base.py": "003693cf651b2294c9b3e4bba2eadcc3479ca62e402b655286082d782db98e1a",
+      "code/hydro.py": "89f0ad12d7c4f4eb7c8767d80f77ee67129c58024082ba0645a8ee8cf77bbe1e",
+      "code/25_cognitive_agent.py": "f378b712833cf630417f2c615aae9f22c35401b7b0ab6541d1b4631687fe1cfd",
+      "code/26_mesa_engine.py": "46388aa68cf3bb90aa3534567c771217b86877a1331b0144e99f10bab0a6669e",
+      "code/_timeline_fix.py": "6467abe793da9c1a459969811ad841c550f04687f4d636aa20e162862613b0a3",
+      "code/llm_utils.py": "702134095a386cfba3a0f9c25db2299116bec331bdcee029229b69f37f18cc39",
+      "code/schemas.py": "cd02cbdf8387b20ce1ab0fef88c0e9e4d275bb0b57e0a71d733c42d715ace423",
+      "code/common.py": "0ba99714fe9cf8f1580d5b11f0b7f6fb5d5d9b76775d27199b84cc1ee8aa3e57",
+      "code/_cacheonly_lib.py": "2707e3b110a8bee8b052b0fc724567aa11a185b2b86491efd3991778c0b2bef8"
+    },
+    "static_input_hashes": {
+      "prompts/03_智能体决策_system.txt": "36a85753a6c29487920fddad6f937870fd4a1ee14b15f9ad32dd6c886bd8e06a",
+      "data/knowledge/知识库.json": "420ad3818eda32a57a381293b4f146199ade772bdc25e139ff8af517b596c96b",
+      "data/knowledge/人群画像分布.json": "8b272b5409e93b82dbf339e82a2b636743a42efbf4007a195cbea7c297885381",
+      "data/knowledge/情景本体.json": "0477497cbf24dad7c2f417c620909a5f87924d1cc0337ab0871987a3c288e265",
+      "data/knowledge/空间与运动参数.json": "ae352f1346faca80174a5f494f3b63be13b46296ebc85aab9e0808e5dc10c902",
+      "data/knowledge/同义词词典.csv": "551c38f46d88537a1412e61116b6a5936406c733212f69bc97797f0a497be61d",
+      "results/runs/批量配置.json": "904ea9d567494676e63415df273e1f646d03dc6c05bd2cbc73947fda149c9732",
+      "requirements.txt": "f16994c4d30e7ceb2243679abb125cd9b0e10881e2389b80610d00789c258a6f"
+    },
+    "runtime": {
+      "python": "3.10.21",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "executable": "C:\\Users\\30525\\miniconda3\\envs\\flood\\python.exe",
+      "key_libs": {
+        "pandas": "2.3.3",
+        "numpy": "2.2.6",
+        "openai": "3.19.0",
+        "pydantic": "2.13.5",
+        "networkx": "3.4.2",
+        "Mesa": "3.0.3",
+        "scikit-learn": "1.7.2",
+        "jsonschema": "4.26.0",
+        "python-dotenv": "1.2.3",
+        "shap": "0.49.1",
+        "mlxtend": "0.23.4"
+      }
+    },
+    "import_rule": "运行前先校验上述哈希并记录实际导入路径；不一致即停止，不混用未冻结副本。"
+  },
+  "llm": {
+    "providers": {
+      "deepseek": {
+        "model": "deepseek-chat",
+        "base_url": "https://api.deepseek.com",
+        "route": "LLM_PROVIDER 非 backup/qwen 时使用主键"
+      },
+      "qwen": {
+        "model": "qwen-plus",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "route": "LLM_PROVIDER=backup/qwen/ali/dashscope 时使用备份键"
+      }
+    },
+    "decision_params": {
+      "temperature": 0.7,
+      "max_tokens": 2000,
+      "retries": 4,
+      "tag": "08_agent_decision",
+      "seed_note": "llm_json 的 seed 仅作记录，未传入采样，不构成独立随机控制",
+      "json_mode": true
+    },
+    "top_p": "未传参，使用模型默认（非本协议指定）",
+    "model_version_info": "调用时记录响应头/返回的模型版本标识；协议本身不锁定远端快照",
+    "seed_note": "seed 仅记录，未传入采样，不构成远端可复现控制"
+  },
+  "prompt_kb_schema": {
+    "system_prompt": {
+      "role": "智能体决策 system 提示词",
+      "abs_path": "E:\\underground-flood-evac\\prompts\\03_智能体决策_system.txt",
+      "exists": true,
+      "sha256": "36a85753a6c29487920fddad6f937870fd4a1ee14b15f9ad32dd6c886bd8e06a"
+    },
+    "knowledge_base": {
+      "role": "KB23 知识库检索产物（2026-10-09 14:08）",
+      "abs_path": "E:\\underground-flood-evac\\data\\knowledge\\知识库.json",
+      "exists": true,
+      "sha256": "420ad3818eda32a57a381293b4f146199ade772bdc25e139ff8af517b596c96b"
+    },
+    "retrieval": "KB23 RAG，按 context_tags 检索 k=5 条（24_knowledge_base.py）",
+    "schema": {
+      "file": "code/schemas.py",
+      "class": "AgentDecision",
+      "fields": [
+        "action(Literal 8类)",
+        "target",
+        "risk_perception",
+        "coping_appraisal",
+        "social_influence",
+        "reason",
+        "confidence"
+      ]
+    }
+  },
+  "scenarios": {
+    "main_paired25": {
+      "cids": [
+        "EXP-001",
+        "EXP-005",
+        "EXP-007",
+        "EXP-014",
+        "EXP-021",
+        "EXP-022",
+        "EXP-025",
+        "EXP-028",
+        "EXP-029",
+        "EXP-033",
+        "EXP-036",
+        "EXP-037",
+        "EXP-039",
+        "EXP-041",
+        "EXP-045",
+        "EXP-049",
+        "EXP-050",
+        "EXP-055",
+        "EXP-063",
+        "EXP-071",
+        "EXP-088",
+        "EXP-090",
+        "EXP-092",
+        "EXP-095",
+        "EXP-096"
+      ],
+      "n_cids": 25,
+      "seeds": "待作者指定（新批次独立种子，不复用20241001系列）",
+      "seeds_list": null,
+      "personnel": "由 seed + 批量配置 n/fam_frac 经 23_profiles 生成，两模型同种子同画像同初始位置",
+      "config_source": {
+        "role": "配对25 实验配置（cid→cfg）",
+        "abs_path": "E:\\underground-flood-evac\\results\\runs\\批量配置.json",
+        "exists": true,
+        "sha256": "904ea9d567494676e63415df273e1f646d03dc6c05bd2cbc73947fda149c9732"
+      }
+    },
+    "preexperiment_12": {
+      "scenarios": [
+        {
+          "cid": "EXP-051",
+          "band": "慢",
+          "alarm": "晚(40)"
+        },
+        {
+          "cid": "EXP-037",
+          "band": "中",
+          "alarm": "无(None)"
+        },
+        {
+          "cid": "EXP-036",
+          "band": "快",
+          "alarm": "早(10)"
+        }
+      ],
+      "seeds": 2,
+      "models": 2,
+      "runs": 12,
+      "purpose": "仅流程/完成率/请求规模/token/费用，不支撑跨模型稳健性结论"
+    }
+  },
+  "timeline_rules": {
+    "order_per_10s_step": [
+      "更新当前时刻水深",
+      "认知决策与人员移动",
+      "受困状态与淹没暴露"
+    ],
+    "per_minute": [
+      "救援窗口内：引导可达在站者→不可达没顶/超时致死→按运力提取",
+      "窗口外：致死检查"
+    ],
+    "absorbing_states": [
+      "evacuated",
+      "rescued",
+      "deceased"
+    ],
+    "terminal_immutable": "终态后不改位置/动作/暴露/占用，不再决策；每步验人数闭合且个体终态不回退（非仅累计数）",
+    "first_events_recorded": [
+      "首次受困",
+      "首次可救",
+      "获救时刻",
+      "死亡时刻",
+      "自主离开时刻"
+    ],
+    "rescue_death_same_moment_order": "先判不可达者死亡，再提取可达者（沿用冻结引擎顺序，两模型一致）",
+    "no_future_state": "位置/感知/暴露/救援资格只用当前模拟时刻，不读未来"
+  },
+  "observation_endpoint": {
+    "main_paired25_T_min": 170,
+    "T_rule": "T = max(150, max(rescue_min)+rescue_window)；配对25 max(rmin)=50, window=120 → 170",
+    "after_window": "窗口结束停止新增救援，未终止人员按统一协议推进到T；终态保持不变",
+    "adverse_scenarios": "不利场景族（含 rmin=90）与主配对25采用不同T，分开报告，不并入170主比较"
+  },
+  "outcomes_five_classes": {
+    "self_evacuated": "自主离开（到达出口的实际结局，非选择撤离动作）",
+    "rescued": "获救，再分 instantaneous_guided（可达在站者瞬时安全转移，不占运力，理想化假设单列人数）与 capacity_rescue（运力受限救援）",
+    "deceased": "死亡（当前判据下模拟结果，非现实校准死亡预测）",
+    "stranded": "受困",
+    "alive_in": "仍在站未终止（存活但未安全离开 = stranded + alive_in）"
+  },
+  "death_rescue_assumptions": {
+    "lethal_depth_m": {
+      "adult": 1.37,
+      "child": 1.0,
+      "note": "模型假设阈值，非普遍现实安全界限"
+    },
+    "current_depth_vs_10min": "若当前水深超阈值即判死亡，10分钟累计条件可能冗余，不声称所有死亡由持续淹没10min触发",
+    "instant_transfer": "可达在站者瞬时安全转移不占运力为理想化近似，单列人数",
+    "capacity_timing": "容量按到达后实际经过服务时间累计；若保留到达瞬间额度/闲置积攒须说明并检查影响"
+  },
+  "cache_rules": {
+    "new_cache_key": [
+      "batch_id",
+      "model",
+      "cid",
+      "seed",
+      "agent_id",
+      "decision_event_no"
+    ],
+    "scope": "仅恢复同一实验事件断点；不同事件即使提示词相同也重新采样，不共享历史响应",
+    "historical_kb23": "不作主实验 warm-start；覆盖研究单独作复现诊断"
+  },
+  "failure_budget_stop": {
+    "total_budget_cap": null,
+    "currency": null,
+    "author_answer": {
+      "total_cap": "无上限（作者授权，不设硬封顶）",
+      "per_run_limits": "合适即可（作者授权采用工程默认）",
+      "retries_counted_in_cap": false,
+      "failure_handling": "该怎么处理就怎么处理，能完成实验就行（作者授权）"
+    },
+    "engineering_defaults": {
+      "note": "以下为防失控工程默认，非作者逐字指定；作者授权'合适即可'。",
+      "per_event_max_tokens": 2000,
+      "per_event_temperature": 0.7,
+      "per_event_timeout_s": 60,
+      "retries": 4,
+      "retries_counted_in_cap": false,
+      "per_run_wall_s_guard": 1800,
+      "stage_gate": "先12次预实验，据实际token分层估费后再申请全量；不直接跑300次"
+    },
+    "on_limit": "达限/超时/解析失败：该运行标记 failed/partial 并保存现场；不回退规则模型掩盖API失败、不换易场景、不选择性删除失败运行；继续其余运行。",
+    "no_warm_start": "历史KB23响应不作主实验warm-start；新事件重新采样。"
+  },
+  "statistics": {
+    "primary_weight": "运行/场景等权（主表）；人员等权仅作补充，不混用",
+    "pairing": "跨模型与新旧差值保留同cid同seed配对",
+    "bootstrap": "同一索引作用于配对对象；记录次数/有效次数/区间方法",
+    "cluster": "考虑场景内重复结构，不把同一运行内人员当独立重复",
+    "spearman": "常数样本记录处理方式",
+    "auc": "报告正负类定义/有效折数/汇总方法；分类AUC不等于真实行为有效性",
+    "missing": "失败/达限运行完整报告，不只报成功样本"
+  },
+  "data_split": "固定按场景划分训练/测试；训练内部场景分组验证；表12指标来自指定留出测试集"
+}

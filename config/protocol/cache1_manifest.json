@@ -1,0 +1,310 @@
+{
+  "version": "v20261018_cache1",
+  "date": "2026-10-18",
+  "note": "cache-only 离线诊断冻结包：补齐空间/画像/检索/水深/提示词/schema/配置/知识库/依赖与库版本；.env 仅记键名。引擎规则与 v20261016_fix1 一致。",
+  "files": {
+    "code/22_space_env.py": {
+      "role": "空间环境（FloodEnv：网络/节点水深/通行/速度）",
+      "abs_path": "E:\\underground-flood-evac\\code\\22_space_env.py",
+      "exists": true,
+      "sha256": "aeeb42ee0dfe8256ac647ea7b5c982fb74bac7fc1e9971123349403d3ec88974"
+    },
+    "code/23_profiles.py": {
+      "role": "异质画像生成 sample_population",
+      "abs_path": "E:\\underground-flood-evac\\code\\23_profiles.py",
+      "exists": true,
+      "sha256": "54eddb5d824859475f22c838347d0f27b7c5aa566e863cf0d35e467d82f803eb"
+    },
+    "code/24_knowledge_base.py": {
+      "role": "知识库检索 RAG（retrieve）",
+      "abs_path": "E:\\underground-flood-evac\\code\\24_knowledge_base.py",
+      "exists": true,
+      "sha256": "003693cf651b2294c9b3e4bba2eadcc3479ca62e402b655286082d782db98e1a"
+    },
+    "code/hydro.py": {
+      "role": "水深函数 get_scenario / depth_params",
+      "abs_path": "E:\\underground-flood-evac\\code\\hydro.py",
+      "exists": true,
+      "sha256": "89f0ad12d7c4f4eb7c8767d80f77ee67129c58024082ba0645a8ee8cf77bbe1e"
+    },
+    "code/25_cognitive_agent.py": {
+      "role": "认知智能体（感知/决策/规则移动/终态早退）",
+      "abs_path": "E:\\underground-flood-evac\\code\\25_cognitive_agent.py",
+      "exists": true,
+      "sha256": "f378b712833cf630417f2c615aae9f22c35401b7b0ab6541d1b4631687fe1cfd"
+    },
+    "code/26_mesa_engine.py": {
+      "role": "Mesa 混合引擎（step/rescue_minute/summary）",
+      "abs_path": "E:\\underground-flood-evac\\code\\26_mesa_engine.py",
+      "exists": true,
+      "sha256": "46388aa68cf3bb90aa3534567c771217b86877a1331b0144e99f10bab0a6669e"
+    },
+    "code/_timeline_fix.py": {
+      "role": "统一时间轴对照模型 TimelineEvacModel",
+      "abs_path": "E:\\underground-flood-evac\\code\\_timeline_fix.py",
+      "exists": true,
+      "sha256": "6467abe793da9c1a459969811ad841c550f04687f4d636aa20e162862613b0a3"
+    },
+    "code/llm_utils.py": {
+      "role": "LLM 调用/缓存/抽取/校验/网络入口",
+      "abs_path": "E:\\underground-flood-evac\\code\\llm_utils.py",
+      "exists": true,
+      "sha256": "702134095a386cfba3a0f9c25db2299116bec331bdcee029229b69f37f18cc39"
+    },
+    "code/schemas.py": {
+      "role": "pydantic 校验模型 AgentDecision",
+      "abs_path": "E:\\underground-flood-evac\\code\\schemas.py",
+      "exists": true,
+      "sha256": "cd02cbdf8387b20ce1ab0fef88c0e9e4d275bb0b57e0a71d733c42d715ace423"
+    },
+    "code/common.py": {
+      "role": "公共模块",
+      "abs_path": "E:\\underground-flood-evac\\code\\common.py",
+      "exists": true,
+      "sha256": "0ba99714fe9cf8f1580d5b11f0b7f6fb5d5d9b76775d27199b84cc1ee8aa3e57"
+    },
+    "code/_cacheonly_lib.py": {
+      "role": "cache-only 生产组件（命中/缺失/解析/schema 四路径）",
+      "abs_path": "E:\\underground-flood-evac\\code\\_cacheonly_lib.py",
+      "exists": true,
+      "sha256": "2707e3b110a8bee8b052b0fc724567aa11a185b2b86491efd3991778c0b2bef8"
+    }
+  },
+  "static_inputs": {
+    "prompts/03_智能体决策_system.txt": {
+      "role": "智能体决策 system 提示词",
+      "abs_path": "E:\\underground-flood-evac\\prompts\\03_智能体决策_system.txt",
+      "exists": true,
+      "sha256": "36a85753a6c29487920fddad6f937870fd4a1ee14b15f9ad32dd6c886bd8e06a"
+    },
+    "data/knowledge/知识库.json": {
+      "role": "KB23 知识库检索产物（2026-10-09 14:08）",
+      "abs_path": "E:\\underground-flood-evac\\data\\knowledge\\知识库.json",
+      "exists": true,
+      "sha256": "420ad3818eda32a57a381293b4f146199ade772bdc25e139ff8af517b596c96b"
+    },
+    "data/knowledge/人群画像分布.json": {
+      "role": "画像分布静态输入",
+      "abs_path": "E:\\underground-flood-evac\\data\\knowledge\\人群画像分布.json",
+      "exists": true,
+      "sha256": "8b272b5409e93b82dbf339e82a2b636743a42efbf4007a195cbea7c297885381"
+    },
+    "data/knowledge/情景本体.json": {
+      "role": "情景本体静态输入",
+      "abs_path": "E:\\underground-flood-evac\\data\\knowledge\\情景本体.json",
+      "exists": true,
+      "sha256": "0477497cbf24dad7c2f417c620909a5f87924d1cc0337ab0871987a3c288e265"
+    },
+    "data/knowledge/空间与运动参数.json": {
+      "role": "空间运动参数静态输入",
+      "abs_path": "E:\\underground-flood-evac\\data\\knowledge\\空间与运动参数.json",
+      "exists": true,
+      "sha256": "ae352f1346faca80174a5f494f3b63be13b46296ebc85aab9e0808e5dc10c902"
+    },
+    "data/knowledge/同义词词典.csv": {
+      "role": "检索同义词静态输入",
+      "abs_path": "E:\\underground-flood-evac\\data\\knowledge\\同义词词典.csv",
+      "exists": true,
+      "sha256": "551c38f46d88537a1412e61116b6a5936406c733212f69bc97797f0a497be61d"
+    },
+    "results/runs/批量配置.json": {
+      "role": "配对25 实验配置（cid→cfg）",
+      "abs_path": "E:\\underground-flood-evac\\results\\runs\\批量配置.json",
+      "exists": true,
+      "sha256": "904ea9d567494676e63415df273e1f646d03dc6c05bd2cbc73947fda149c9732"
+    },
+    "requirements.txt": {
+      "role": "依赖冻结清单",
+      "abs_path": "E:\\underground-flood-evac\\requirements.txt",
+      "exists": true,
+      "sha256": "f16994c4d30e7ceb2243679abb125cd9b0e10881e2389b80610d00789c258a6f"
+    }
+  },
+  "environment": {
+    "python": "3.10.21",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "executable": "C:\\Users\\30525\\miniconda3\\envs\\flood\\python.exe",
+    "key_libs": {
+      "pandas": "2.3.3",
+      "numpy": "2.2.6",
+      "openai": "3.19.0",
+      "pydantic": "2.13.5",
+      "networkx": "3.4.2",
+      "Mesa": "3.0.3",
+      "scikit-learn": "1.7.2",
+      "jsonschema": "4.26.0",
+      "python-dotenv": "1.2.3",
+      "shap": "0.49.1",
+      "mlxtend": "0.23.4"
+    }
+  },
+  "env_keys": [
+    "LLM_API_KEY",
+    "LLM_BASE_URL",
+    "LLM_MODEL",
+    "LLM_API_KEY_BACKUP",
+    "LLM_BASE_URL_BACKUP",
+    "LLM_MODEL_BACKUP"
+  ],
+  "hydro_inputs": {
+    "data/processed/情景库.json": {
+      "role": "hydro.load_scenarios 情景库",
+      "abs_path": "E:\\underground-flood-evac\\data\\processed\\情景库.json",
+      "exists": true,
+      "sha256": "aafb830594fe79c44bdc10113c6ffe0ccbb63713b0c4717ec1361dd87b06a7be"
+    },
+    "data/processed/水深参数化模板.json": {
+      "role": "hydro.load_templates 水深模板",
+      "abs_path": "E:\\underground-flood-evac\\data\\processed\\水深参数化模板.json",
+      "exists": true,
+      "sha256": "05d07eadbd6be51aad293621978e3cfc0edd13daf8a11e3c4e6f9e49c81569c7"
+    }
+  },
+  "clean_batch": {
+    "clean_ind_deepseek.csv": {
+      "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\clean\\clean_ind_deepseek.csv",
+      "sha256": "cdd704e2bf7364dfca295c798d39f03b47aff403db5932c976757eb014ca1034",
+      "note": "论文表9 同源 clean 批次；新随机实验不得混用"
+    },
+    "clean_ind_qwen.csv": {
+      "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\clean\\clean_ind_qwen.csv",
+      "sha256": "2db30ba1a3e9812f4200a05bd0a112dc649892170364e33269c23d73b19310e6",
+      "note": "论文表9 同源 clean 批次；新随机实验不得混用"
+    },
+    "clean_runs_deepseek.csv": {
+      "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\clean\\clean_runs_deepseek.csv",
+      "sha256": "03e60862950fc9371cebe6852481271d454932b0536b5d0e399678862ac0566c",
+      "note": "论文表9 同源 clean 批次；新随机实验不得混用"
+    },
+    "clean_runs_qwen.csv": {
+      "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\clean\\clean_runs_qwen.csv",
+      "sha256": "09caa7dbe69ec009396fccac5186afc9f23c4e7a706056dd728d374e33efcc6c",
+      "note": "论文表9 同源 clean 批次；新随机实验不得混用"
+    }
+  },
+  "llm_endpoint": {
+    "note": "仅记录 model/base_url/参数，api_key 值不保存；key 见 .env 本地。",
+    "providers": {
+      "deepseek": {
+        "model": "deepseek-chat",
+        "base_url": "https://api.deepseek.com",
+        "route": "LLM_PROVIDER 非 backup/qwen 时使用主键"
+      },
+      "qwen": {
+        "model": "qwen-plus",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "route": "LLM_PROVIDER=backup/qwen/ali/dashscope 时使用备份键"
+      }
+    },
+    "decision_params": {
+      "temperature": 0.7,
+      "max_tokens": 2000,
+      "retries": 4,
+      "tag": "08_agent_decision",
+      "seed_note": "llm_json 的 seed 仅作记录，未传入采样，不构成独立随机控制",
+      "json_mode": true
+    }
+  },
+  "call_window": {
+    "deepseek": {
+      "date_range": [
+        "2026-10-09T15:18:31",
+        "2026-10-09T15:25:47"
+      ],
+      "n_shards": 4
+    },
+    "qwen": {
+      "date_range": [
+        "2026-10-09T16:25:53",
+        "2026-10-09T17:54:31"
+      ],
+      "n_shards": 4
+    }
+  },
+  "historical_cache_aux": {
+    "note": "仅辅助研究/warm-start；新随机实验不复用为独立响应",
+    "files": {
+      "cache_deepseek_shard0.json": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\cache_deepseek_shard0.json",
+        "sha256": "abbc6d1219bf7524cd28c575158464c99484ee342e54f114d1e4beab7c5a0aa6"
+      },
+      "cache_deepseek_shard1.json": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\cache_deepseek_shard1.json",
+        "sha256": "3ae9936a4064425ffbc34fdcc8bb03d5e1b396566c809454c91a554d067b2bca"
+      },
+      "cache_deepseek_shard2.json": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\cache_deepseek_shard2.json",
+        "sha256": "a7ed2e3c05327c0ab931dab1466a4c174e667d187d6769982cdd00bfa3a34eaf"
+      },
+      "cache_deepseek_shard3.json": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\cache_deepseek_shard3.json",
+        "sha256": "dfe3fd02cadfe377194dc7f8f92c58412c7b24bf80626494ca64247858f05f20"
+      },
+      "cache_qwen_shard0.json": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\cache_qwen_shard0.json",
+        "sha256": "34e5a0bfc60518e11304a63cec132a30bb005a4534aa95bc7602c0769e0240e7"
+      },
+      "cache_qwen_shard1.json": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\cache_qwen_shard1.json",
+        "sha256": "5d571fc087621b7058561928cf25681d008b7cbeab8e485c37e852962e8d9aee"
+      },
+      "cache_qwen_shard2.json": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\cache_qwen_shard2.json",
+        "sha256": "cad9114e1672f786973b330d4f347030be6b02a0cd9030bb01c3a241589d3160"
+      },
+      "cache_qwen_shard3.json": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\cache_qwen_shard3.json",
+        "sha256": "9a6e7b853200690ab5af9e3e84ee096ebd53e57128e9293361106145f6866112"
+      },
+      "calls_deepseek_shard0.jsonl": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\calls_deepseek_shard0.jsonl",
+        "sha256": "eeaf760282055bf4a3279659e7de4c9eac15f5fef8a2300f7fe678e1ca4a15b1"
+      },
+      "calls_deepseek_shard1.jsonl": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\calls_deepseek_shard1.jsonl",
+        "sha256": "e03b1324698477c0c983445f4267d1e7f81578d8e05db6a2bca7ceae6df1e9e2"
+      },
+      "calls_deepseek_shard2.jsonl": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\calls_deepseek_shard2.jsonl",
+        "sha256": "70f25b0070e49fd9699e385f2a5e18e66c6001d290c3cf00f5476ba6d83cd446"
+      },
+      "calls_deepseek_shard3.jsonl": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\calls_deepseek_shard3.jsonl",
+        "sha256": "4a435648c62eafb8cb3bbe905b7bda9024f9d51147c249be944d251c82ee90da"
+      },
+      "calls_qwen_shard0.jsonl": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\calls_qwen_shard0.jsonl",
+        "sha256": "a0bc3601afea55564fa0a6da3d1dcf78a02a1895b3634aed8c7988bf580d5cdb"
+      },
+      "calls_qwen_shard1.jsonl": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\calls_qwen_shard1.jsonl",
+        "sha256": "3c2949652cf4804678973c5b8d9d03489b79b9d679f4f1778129b62529c1d294"
+      },
+      "calls_qwen_shard2.jsonl": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\calls_qwen_shard2.jsonl",
+        "sha256": "6180736eaef912a488bb222ae9b253ba9d6c709223bcbf3fa5e14675e5f2792d"
+      },
+      "calls_qwen_shard3.jsonl": {
+        "abs_path": "E:\\underground-flood-evac\\results\\rerun_kb23_paired25\\calls_qwen_shard3.jsonl",
+        "sha256": "9d44d33730c266023ddde1870314c17d0b292904e05455d0eb91000f9022240b"
+      }
+    }
+  },
+  "token_baseline_network_calls": {
+    "deepseek": {
+      "network_calls": 4181,
+      "prompt_tokens": 2837310,
+      "completion_tokens": 331595,
+      "total_tokens": 3168905,
+      "mean_total": 758
+    },
+    "qwen": {
+      "network_calls": 21833,
+      "prompt_tokens": 15671146,
+      "completion_tokens": 1987333,
+      "total_tokens": 17658479,
+      "mean_total": 809
+    },
+    "caliber": "仅统计 status=ok 的非 cached 网络调用；含纠错重试，供预算参考，非新实验承诺"
+  }
+}

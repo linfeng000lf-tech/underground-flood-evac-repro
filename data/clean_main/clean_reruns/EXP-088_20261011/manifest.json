@@ -1,0 +1,27 @@
+{
+  "provider": "qwen",
+  "cid": "EXP-088",
+  "seed": 20261011,
+  "status": "complete",
+  "wall_s": 1918.63,
+  "calls": 817,
+  "ok": 817,
+  "val_failed": 0,
+  "fallback_events": 0,
+  "usage_total": {
+    "prompt_tokens": 546135,
+    "completion_tokens": 71957,
+    "total_tokens": 618092
+  },
+  "final_counts": {
+    "evacuated": 140,
+    "rescued": 0,
+    "stranded": 0,
+    "deceased": 0
+  },
+  "alive_in": 0,
+  "error": null,
+  "kb": "on",
+  "clean_replacement_of": "formal_main/qwen/EXP-088_20261011",
+  "fail_policy": "account_error_failfast; non_account_fallback_flagged"
+}

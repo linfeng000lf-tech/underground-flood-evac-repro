@@ -1,69 +1,111 @@
-﻿# Cognitive LLM Agents for Crowd Evacuation in Underground Flooding
+# Reproduction Package README
 
-Reproducibility package for the study that uses large-language-model (LLM) cognitive
-agents to mine individual evacuation behaviour patterns during flooding in urban
-underground space (metro stations and connected underground networks).
+This package accompanies the manuscript **"Unified-Timeline Simulation and Layered
+Evidence Assessment of Flood Evacuation in Underground Spaces"**, published at
+https://github.com/linfeng000lf-tech/underground-flood-evac-repro. It contains
+published run-level aggregated results and offline statistical verification
+scripts. It carries no API key, account credential, copyrighted source, raw
+historical debug cache, or per-event request/response log.
 
-The package provides the simulation engine, the perception-appraisal-coping cognitive
-agent, the scenario library and controlled vocabularies, the experiment design, and the
-aggregated outputs underlying the manuscript's tables and figures. API keys are never
-included; you must supply your own keys in a local `.env` file.
+## 1. Release scope (two layers)
 
-## Repository structure
+This package implements **Layer 1: offline statistical verification**. It does
+**not** claim end-to-end engine reproduction.
 
-- `code/` - simulation, cognitive agent, experiment design, validation, association
-  rules, machine-learning models, SHAP analysis, real-LLM replication, adverse scenarios,
-  and offline sensitivity/intermediate-condition tests. Offline unit tests
-  (`test_ch4.py`, `test_llm_utils.py`) verify code correctness. Standalone figure/diagram,
-  web-animation and manuscript/report generators are intentionally excluded; their
-  rendered outputs remain under `results/` and `docs/`.
-- `prompts/` - system and user prompt templates used for scenario extraction and for
-  agent decision-making.
-- `data/knowledge/` - flood scenario ontology, knowledge base, population profiles,
-  space and movement parameters.
-- `data/processed/` - cleaned source datasets, controlled vocabulary, parameterised
-  scenario library, four-stage water-depth templates, data dictionary.
-- `results/runs/` - aggregated run-level and individual-level outputs (including the
-  281,600 labelled individual records), real-LLM replication tables, association rules,
-  ML metrics, SHAP values, the adverse-scenario family, and the sensitivity and
-  standardized-deviation tables underlying the manuscript's Table 4 and Table 2.
-- `docs/` - three-layer validity report, cross-model replication report,
-  extraction-quality audit, and notes on the scientific basis of the parameters.
+### Layer 1 — Offline statistical verification (this release)
 
-## Environment
+Without network access and without an API key, a third party can:
 
-- Python 3.10; install dependencies with `pip install -r requirements.txt`.
-- Create a `.env` file (see `code/llm_utils.py`) with your LLM API credentials.
-- The heuristic and analysis pipelines run offline; real-LLM runs require API access.
+1. Rebuild the population-weighted safe-departure proportion and fatality count
+   for the three models (rule reference / DeepSeek / Qwen) from the clean main
+   table;
+2. Rebuild run-level means, paired differences, win/loss/tie, a fixed-seed
+   paired bootstrap 95% interval, and a cluster-by-scenario 95% interval;
+3. Rebuild the #79 retrieval-ablation run-level mean paired difference and the
+   population-weighted ON−OFF difference from published integer counts;
+4. Rebuild the #80 rule-layer sensitivity (BASE/FINE/WALK) pooled and
+   pair-by-pair counts;
+5. Verify file hashes against `MANIFEST.sha256`.
 
-## Reproduction
+Raw per-event request/response transcripts are **not required** for this layer
+and are not published here.
 
-1. Scenario library: run `code/09` through `code/16` (ontology, extraction, controlled
-   vocabulary, depth parameterisation, scenario library).
-2. Cognitive model and validation: `code/24` to `code/38` (knowledge base, agent,
-   engine, case replay, classic effects, holdout, experiment design, batch runs).
-3. Behaviour mining: `code/41` to `code/48` (features, descriptive statistics,
-   association rules, ML models, SHAP, cross-validation, intervention thresholds).
-4. Real-LLM replication and adverse scenarios: `code/50`, `code/55` to `code/57`.
-5. Sensitivity and intermediate-condition tests (offline; reproduce Table 4 and the
-   monotonic broadcast/familiarity results): `code/66_sensitivity.py` and
-   `code/67_sensitivity_addon.py`. These read the shipped `results/runs/批量配置.json`.
+### Layer 2 — Simulation-implementation reproduction (optional, not in this release)
 
-A Windows entry point is provided in `一键复现.bat`.
+Reproducing an actual simulation run would additionally require the frozen
+engine source, full scenario configurations, dependency environment, and an
+author-supplied interface key. The rule model can be re-run offline once the
+engine is available; an LLM run requires a self-configured interface, and the
+remote model snapshot is not locked by protocol, so exact numerical repetition
+is not guaranteed. This package currently ships neither the engine runner nor
+the frozen engine source, and "only an API key is missing" should not be said.
 
-## Notes on scope
+## 2. Pairing key
 
-The model reproduces directional effects and non-fatal evacuation timing. Flood-fatality
-ratios are conditional outputs for open-network deep-water entrapment under stated
-assumptions; the confined-train overtopping mechanism of specific real incidents is not
-modelled. See the manuscript and `docs/` for the validity framework and the boundary
-conditions under which a zero-fatality outcome holds.
+Runs are matched by **(scenario identifier `cid`, simulation `seed`)**. The
+three models use the same six seeds on the clean main table, so 150 matched
+groups share identical `(cid, seed)`. `repeat_index` is a deterministic label
+for the six seeds and is **not** used to infer a match between unrelated runs;
+order alignment alone is not the scientific pairing key.
 
-## License
+## 3. Run offline verification (zero network, zero cost, standard library only)
 
-Code is released under the MIT License (see `LICENSE`). Datasets in `data/` and
-`results/` are made available for academic reproduction of this study.
+The verification scripts use only the Python standard library, so no
+`pip install` is needed for Layer 1. From the package root:
 
-## Citation
+```powershell
+python scripts/rebuild_main_table.py
+python scripts/ablation_summary.py
+python scripts/sensitivity_t80.py
+python scripts/verify_hashes.py
+```
 
-[Citation details and DOI to be added upon publication.]
+Expected terminal line for the three statistical scripts: `RESULT: PASS`;
+`verify_hashes.py` reports `checked=N mismatches=0` and `RESULT: PASS`. Any
+structural or anchor mismatch makes a script exit non-zero; the ablation script
+is descriptive about effect size but still enforces structural completeness
+(18 unique non-mixed pairs per provider, integer closure) and exits non-zero
+on failure.
+
+Optional environment setup below is **only** for Layer 2 and requires network;
+it is not part of the zero-network acceptance step:
+
+```powershell
+conda create -n flood python=3.10 -y   # optional, Layer 2 only
+conda activate flood
+pip install -r requirements.txt         # optional, Layer 2 only
+```
+
+## 4. Manuscript anchors (each model N = 22,680)
+
+- Rule reference: safe-departure 0.9086, deceased 2,073
+- DeepSeek: safe-departure 0.9996, deceased 9
+- Qwen (clean): safe-departure 0.9757, deceased 551
+
+#80: BASE/FINE safe 20,607, deceased 2,073, on-site-at-endpoint 0; WALK safe
+20,119, deceased 2,073, on-site-at-endpoint 488.
+
+Paired run-level differences (mean ON−OFF for the ablation; mean a−b for the
+three-model comparison) and fixed-seed intervals are printed by the scripts.
+
+## 5. Source batch, cleaning rule, and generation provenance
+
+| Data | Source batch | Cleaning / replacement rule | Generated by |
+|---|---|---|---|
+| `data/clean_main/clean_main_450.csv` | Formal same-protocol batch (25 cids × 6 seeds × 3 models) | The 3 failed Qwen keys (EXP-049_20261059, EXP-088_20261011, EXP-095_20261047) were replaced by clean fault-triggered reruns; original mixed attempts are retained in the local audit copy and never overwritten | Offline rebuild from per-run `summary.json` / `runs.csv`; verified by `rebuild_main_table.py` |
+| `data/clean_main/clean_reruns/` | Authorized clean reruns of the 3 failed Qwen keys | Replaced on interface-fault grounds, not on result quality | Rerun runner; index logs only |
+| `data/ablation_kb/t79_paired_detail.csv` | Same-batch #79 KB_ON/KB_OFF, 6 cids × 3 seeds × 2 providers | Only complete, zero-fallback pairs enter the clean comparison; integer counts back-filled from per-run `summary.json` | `ablation_summary.py` verification |
+| `data/sensitivity_t80/t80_all.csv` | #80 rule-layer sensitivity, 150 pairs × 3 versions | Endpoint reachable-but-not-exited agents are kept as on-site, never counted safe | `sensitivity_t80.py` verification |
+
+## 6. Scope cautions
+
+- Population-weighted proportion and run-mean paired difference are different
+  statistics and must not be interchanged.
+- A near-zero observed difference is not proof of no effect or of equivalence;
+  #79 is a targeted, exploratory ablation with ON executed before OFF in each
+  pair (fixed order, not randomized interleaving).
+- Fatality is a model depth-threshold proxy, not an empirically validated
+  drowning threshold. Safe departure = self/guided walking exit + completed
+  rescue transfer.
+- Published data here are aggregated; per-event transcripts, API request/response,
+  and retry-usage detail are excluded.

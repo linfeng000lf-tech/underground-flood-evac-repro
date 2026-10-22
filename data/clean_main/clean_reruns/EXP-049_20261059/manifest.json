@@ -1,0 +1,27 @@
+{
+  "provider": "qwen",
+  "cid": "EXP-049",
+  "seed": 20261059,
+  "status": "complete",
+  "wall_s": 1678.66,
+  "calls": 720,
+  "ok": 720,
+  "val_failed": 0,
+  "fallback_events": 0,
+  "usage_total": {
+    "prompt_tokens": 465364,
+    "completion_tokens": 62864,
+    "total_tokens": 528228
+  },
+  "final_counts": {
+    "evacuated": 140,
+    "rescued": 0,
+    "stranded": 0,
+    "deceased": 0
+  },
+  "alive_in": 0,
+  "error": null,
+  "kb": "on",
+  "clean_replacement_of": "formal_main/qwen/EXP-049_20261059",
+  "fail_policy": "account_error_failfast; non_account_fallback_flagged"
+}
