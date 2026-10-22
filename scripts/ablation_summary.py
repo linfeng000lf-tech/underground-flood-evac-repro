@@ -8,8 +8,9 @@ Reads data/ablation_kb/t79_paired_detail.csv (6 cids x 3 seeds x 2 providers =
   1. structurally verifies exactly 18 unique ON/OFF pairs per provider, no
      duplicate (provider, cid, seed), both ends non-mixed (no API-failure
      fallback), integer five-outcome closure, and equal on/off headcount;
-  2. reports the run-level mean paired difference (ON - OFF) in safe-departure
-     proportion with win/loss/tie;
+  2. recomputes the run-level mean paired difference (ON - OFF) in safe-departure
+     proportion from the published integer headcount and safe counts, and only
+     cross-checks the stored floating proportions; win/loss/tie follows;
   3. reports the population-weighted (pooled) ON and OFF safe-departure and the
      pooled ON - OFF difference, recomputed from the published integer counts.
 
@@ -38,32 +39,61 @@ def main():
 
     seen = set()
     by_prov = defaultdict(list)
+    keys_by = {}
     for r in rows:
         key = (r['provider'], r['cid'], r['seed'])
         if key in seen:
             ok = False; print(f"DUPLICATE PAIR {key}")
         seen.add(key); by_prov[r['provider']].append(r)
 
+    # the two providers must share the exact same 18 (cid, seed) pairs
+    keys_by = {p: {(r['cid'], r['seed']) for r in by_prov.get(p, [])}
+               for p in PROVIDERS}
+    if keys_by['deepseek'] != keys_by['qwen']:
+        ok = False
+        print("KEY SET MISMATCH between deepseek and qwen")
+
     for prov in PROVIDERS:
         sub = by_prov.get(prov, [])
         if len(sub) != 18:
             ok = False; print(f"PAIR COUNT MISMATCH {prov}: {len(sub)} != 18")
+        # 6 cids x 3 seeds
+        cid_seeds = defaultdict(set)
+        for r in sub:
+            cid_seeds[r['cid']].add(r['seed'])
+        if len(cid_seeds) != 6:
+            ok = False; print(f"CID COUNT MISMATCH {prov}: {len(cid_seeds)} != 6")
+        for c, ss in cid_seeds.items():
+            if len(ss) != 3:
+                ok = False; print(f"SEED COUNT MISMATCH {prov} cid={c}: {len(ss)} != 3")
         for r in sub:
             # structural: non-mixed, integer closure, equal headcount, safe recompute
             if r['on_mixed'] != 'False' or r['off_mixed'] != 'False':
                 ok = False; print(f"MIXED PAIR {prov} {r['cid']} {r['seed']}")
             n = int(r['n'])
+            if n <= 0:
+                ok = False; print(f"NONPOSITIVE HEADCOUNT {prov} {r['cid']} {r['seed']}: n={n}")
             for pre in ['on', 'off']:
                 ev = int(r[f'{pre}_evac_n']); rs = int(r[f'{pre}_rescued_n'])
                 st = int(r[f'{pre}_stranded_n']); dec = int(r[f'{pre}_death_n'])
                 ai = int(r[f'{pre}_in_n']); safe = int(r[f'{pre}_safe_n'])
+                for col, val in [('evac',ev),('rescued',rs),('stranded',st),
+                                 ('death',dec),('in',ai),('safe',safe)]:
+                    if val < 0:
+                        ok = False; print(f"NEGATIVE {prov} {r['cid']} {r['seed']} {pre}_{col}={val}")
                 if ev + rs + st + dec + ai != n:
                     ok = False; print(f"CLOSURE FAIL {prov} {r['cid']} {r['seed']} {pre}")
                 if ev + rs != safe:
                     ok = False; print(f"SAFE RECOMPUTE FAIL {prov} {r['cid']} {r['seed']} {pre}")
-            # run-level mean paired difference + W/L/T
-            d = float(r['on_safe']) - float(r['off_safe'])
-            r['_d'] = d
+            # run-level mean paired difference recomputed FROM INTEGER COUNTS;
+            # the stored floating proportions are only cross-checked, not used
+            on_rate = int(r['on_safe_n']) / n
+            off_rate = int(r['off_safe_n']) / n
+            r['_d'] = on_rate - off_rate
+            if abs(float(r['on_safe']) - on_rate) > 1e-6:
+                ok = False; print(f"SAVED ON RATE MISMATCH {prov} {r['cid']} {r['seed']}")
+            if abs(float(r['off_safe']) - off_rate) > 1e-6:
+                ok = False; print(f"SAVED OFF RATE MISMATCH {prov} {r['cid']} {r['seed']}")
 
     print("\n-- Run-level mean paired (ON - OFF) safe-departure --")
     print("-- Population-weighted (pooled) ON / OFF from integer counts --")

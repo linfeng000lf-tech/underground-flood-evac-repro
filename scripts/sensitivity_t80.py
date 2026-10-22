@@ -40,7 +40,12 @@ def main():
     rows = list(csv.DictReader(open(SRC, encoding='utf-8-sig', newline='')))
     print(f"Loaded {len(rows)} rows from {os.path.relpath(SRC, ROOT)}")
     M = defaultdict(dict)
+    seen_triplet = set()
     for r in rows:
+        trip = (r['cid'], r['seed'], r['version'])
+        if trip in seen_triplet:
+            ok = False; print(f"DUPLICATE (cid, seed, version): {trip}")
+        seen_triplet.add(trip)
         M[(r['cid'], r['seed'])][r['version']] = r
     if len(M) != 150:
         ok = False; print(f"KEY COUNT MISMATCH: {len(M)} != 150")

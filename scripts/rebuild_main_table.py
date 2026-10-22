@@ -15,10 +15,10 @@ data/clean_main/clean_main_450.csv (25 cids x 6 seeds x 3 models) and:
      150-pair paired bootstrap 95% interval, and a cluster-by-cid (25 whole
      scenario groups) 95% interval.
 
-Bootstrap settings are fixed (B=10000, seed=20261022) so intervals are
-reproducible offline; the last digit may differ from the manuscript because of
-resampling-sequence implementation, while means, integer totals and win/loss/tie
-are exact.
+Bootstrap settings are fixed (B=10000, seed=20261022) and every resampling unit
+is traversed in a fixed sorted order, so the paired bootstrap and cluster-cid
+intervals are byte-stable across independent Python processes regardless of
+Python hash randomization. Means, integer totals and win/loss/tie are exact.
 
 Usage:
     python scripts/rebuild_main_table.py
@@ -57,35 +57,56 @@ def main():
     with open(MAIN, encoding='utf-8-sig', newline='') as f:
         rows = list(csv.DictReader(f))
     print(f"Loaded {len(rows)} run rows from {os.path.relpath(MAIN, ROOT)}")
+    if len(rows) != 450:
+        ok = False; print(f"TOTAL ROW COUNT MISMATCH: {len(rows)} != 450")
 
     # 1. model set exactly
     got_models = sorted({r['model'] for r in rows})
     if got_models != sorted(MODELS):
         ok = False; print(f"MODEL SET MISMATCH: {got_models} != {sorted(MODELS)}")
 
-    # 2. per-model unique (cid, seed) keys and exact shared key set
+    # 2. per-model unique (cid, seed) keys and exact shared key set.
+    # Detect duplicates BEFORE inserting into the dict; a dict silently overwrites
+    # a repeated key, so a post-insert length comparison cannot catch it.
+    raw_by_model = defaultdict(int)
     by_model = defaultdict(dict)
+    seen_pair = defaultdict(set)
     for r in rows:
-        by_model[r['model']][(r['cid'], r['seed'])] = r
+        m = r['model']
+        raw_by_model[m] += 1
+        k = (r['cid'], r['seed'])
+        if k in seen_pair[m]:
+            ok = False; print(f"DUPLICATE KEY in {m}: {k}")
+        seen_pair[m].add(k)
+        by_model[m][k] = r
     key_sets = {}
     for m in MODELS:
         ks = set(by_model[m])
-        dup = len(by_model[m]) - len(ks)
-        if dup:
-            ok = False; print(f"DUPLICATE KEYS in {m}: {dup}")
+        if raw_by_model[m] != 150:
+            ok = False; print(f"RAW ROW COUNT MISMATCH {m}: {raw_by_model[m]} != 150")
         if len(ks) != 150:
-            ok = False; print(f"RUN COUNT MISMATCH {m}: {len(ks)} != 150")
+            ok = False; print(f"UNIQUE KEY COUNT MISMATCH {m}: {len(ks)} != 150")
+        cids = sorted({k[0] for k in ks})
+        if len(cids) != 25:
+            ok = False; print(f"CID COUNT MISMATCH {m}: {len(cids)} != 25")
+        seed_per_cid = defaultdict(set)
+        for c, s in ks:
+            seed_per_cid[c].add(s)
+        for c, ss in seed_per_cid.items():
+            if len(ss) != 6:
+                ok = False; print(f"SEED COUNT MISMATCH {m} cid={c}: {len(ss)} != 6")
         key_sets[m] = ks
     shared = key_sets['rule_reference'] & key_sets['deepseek'] & key_sets['qwen']
     if len(shared) != 150:
         ok = False; print(f"SHARED KEY SET MISMATCH: {len(shared)} != 150")
+    ordered_keys = sorted(shared)
     for m in MODELS:
         only = key_sets[m] - shared
         if only:
             ok = False; print(f"KEYS in {m} not shared: {sorted(only)[:5]}")
 
     # 3/4. per-key headcount, non-negative, closure, safe recompute
-    for k in shared:
+    for k in ordered_keys:
         nvals = {}
         for m in MODELS:
             r = by_model[m][k]
@@ -129,12 +150,15 @@ def main():
         rm = sum(int(r['safe'])/int(r['n']) for r in sub) / len(sub)
         print(f"{m:16s} run-mean={rm:.6f}")
 
-    # paired differences, W/L/T, paired bootstrap, cluster-cid interval
+    # paired differences, W/L/T, paired bootstrap, cluster-cid interval.
+    # Traverse the matched keys in a fixed sorted order so the resampling units
+    # do not depend on set/dict iteration order (which varies with Python hash
+    # randomization); a fixed RNG seed then yields byte-identical intervals.
     print(f"\n-- Run-level paired differences (a - b), B={B}, seed={SEED} --")
     pairs = {k: {m: int(by_model[m][k]['safe'])/int(by_model[m][k]['n']) for m in MODELS}
-             for k in shared}
+             for k in ordered_keys}
     for (a, b), anc in PAIR_ANCHORS.items():
-        d = [pairs[k][a]-pairs[k][b] for k in shared]
+        d = [pairs[k][a]-pairs[k][b] for k in ordered_keys]
         mean = sum(d)/len(d)
         w = sum(1 for x in d if x > 1e-9); l = sum(1 for x in d if x < -1e-9)
         t = len(d)-w-l
@@ -144,10 +168,10 @@ def main():
         rng = random.Random(SEED)
         boots = [sum(d[rng.randrange(len(d))] for _ in range(len(d)))/len(d) for _ in range(B)]
         blo, bhi = ci95(boots)
-        bycid = defaultdict(list)
-        for k in shared:
-            bycid[k[0]].append(pairs[k][a]-pairs[k][b])
-        cids = list(bycid)
+        bycid = {}
+        for k in ordered_keys:
+            bycid.setdefault(k[0], []).append(pairs[k][a]-pairs[k][b])
+        cids = sorted(bycid)
         cboot = []
         for _ in range(B):
             g = [cids[rng.randrange(len(cids))] for _ in range(len(cids))]
