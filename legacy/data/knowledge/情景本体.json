@@ -1,0 +1,622 @@
+{
+  "classes": {
+    "SC": [
+      "水灾情景",
+      "FloodScenario",
+      "情景",
+      "对一次地下空间水灾演化全过程的参数化抽象，是情景库的基本单元"
+    ],
+    "EV": [
+      "水灾事件",
+      "FloodEvent",
+      "事件",
+      "在特定时空发生、具有明确诱因与类型的真实或推演水灾发生事实"
+    ],
+    "ME": [
+      "气象水文环境",
+      "MeteorologicalEnvironment",
+      "环境",
+      "降雨、台风、河道/潮汐水位、预警信号等外部致灾背景"
+    ],
+    "RS": [
+      "致因/风险源",
+      "RiskSource",
+      "致因",
+      "直接/间接导致进水的环境、设施、行为、决策与管理因素"
+    ],
+    "US": [
+      "地下空间",
+      "UndergroundSpace",
+      "空间",
+      "发生水灾的地下建构筑物及其几何与设防属性"
+    ],
+    "FC": [
+      "设施构件",
+      "FacilityComponent",
+      "空间",
+      "出入口、风井、管片、封堵/挡水构件、排水与监测设备"
+    ],
+    "FW": [
+      "洪水水体",
+      "Floodwater",
+      "水体",
+      "进入地下空间的水，以四阶段 depth(t)、流速、含砂率等刻画"
+    ],
+    "PP": [
+      "人群",
+      "Population",
+      "人员",
+      "乘客、作业人员、业主/公众、救援人员等疏散主体"
+    ],
+    "AC": [
+      "疏散行为",
+      "EvacuationAction",
+      "人员",
+      "人群在感知—决策—行动各阶段的逃生行为表现"
+    ],
+    "ER": [
+      "应急响应",
+      "EmergencyResponse",
+      "响应",
+      "政府/企业按级别启动的应急组织与指挥活动"
+    ],
+    "RA": [
+      "处置措施",
+      "ResponseAction",
+      "响应",
+      "封堵、抽排、停运、疏散引导等具体处置动作及时序"
+    ],
+    "OC": [
+      "后果",
+      "Outcome",
+      "结果",
+      "伤亡、直接经济损失、运营中断、疏散成败等结果"
+    ],
+    "KN": [
+      "知识",
+      "Knowledge",
+      "知识",
+      "指导处置与疏散的显性/隐性（含正向）知识"
+    ]
+  },
+  "attributes": {
+    "SC": [
+      [
+        "sc_id",
+        "情景编号",
+        "string",
+        "SCN-###",
+        "主键"
+      ],
+      [
+        "sc_name",
+        "情景名称",
+        "string",
+        "—",
+        ""
+      ],
+      [
+        "archetype",
+        "情景原型",
+        "enum",
+        "见受控词表",
+        ""
+      ],
+      [
+        "scenario_tree",
+        "情景树路径",
+        "string",
+        "—",
+        "分支编码组合"
+      ],
+      [
+        "prob_band",
+        "发生可能性带",
+        "enum",
+        "低/中/高",
+        "基于历史频次"
+      ]
+    ],
+    "EV": [
+      [
+        "event_time",
+        "事件时间",
+        "datetime",
+        "—",
+        ""
+      ],
+      [
+        "event_type",
+        "事件类型(受控)",
+        "enum",
+        "T1–T8",
+        "归并后"
+      ],
+      [
+        "grade",
+        "事故等级",
+        "enum",
+        "一般/较大/重大/特别重大/不适用/未明确",
+        ""
+      ],
+      [
+        "confidence",
+        "推断置信度",
+        "enum",
+        "明确记载/推断/存疑/不适用",
+        ""
+      ]
+    ],
+    "ME": [
+      [
+        "rainfall",
+        "降雨强度",
+        "float",
+        "mm/h 或 mm/过程",
+        ""
+      ],
+      [
+        "warning",
+        "气象预警信号",
+        "enum",
+        "蓝/黄/橙/红/黑",
+        ""
+      ],
+      [
+        "river_level",
+        "河道/潮位状态",
+        "enum",
+        "常水位/警戒/保证/超保证",
+        ""
+      ],
+      [
+        "typhoon",
+        "台风",
+        "string",
+        "—",
+        "可空"
+      ]
+    ],
+    "RS": [
+      [
+        "direct_cause",
+        "直接原因",
+        "text",
+        "—",
+        "环境/行为/决策"
+      ],
+      [
+        "indirect_cause",
+        "间接原因",
+        "text",
+        "—",
+        "管理"
+      ],
+      [
+        "water_source",
+        "洪水来源",
+        "enum",
+        "W1–W7",
+        ""
+      ],
+      [
+        "failed_component",
+        "失效构件",
+        "string",
+        "—",
+        ""
+      ]
+    ],
+    "US": [
+      [
+        "space_type",
+        "地下空间类型",
+        "enum",
+        "9桶",
+        ""
+      ],
+      [
+        "space_geom",
+        "几何/层数",
+        "string",
+        "—",
+        ""
+      ],
+      [
+        "defense_level",
+        "设防高程/挡水",
+        "float",
+        "m 或 cm",
+        ""
+      ],
+      [
+        "n_exits",
+        "连通口/出口数",
+        "int",
+        "个"
+      ]
+    ],
+    "FC": [
+      [
+        "component",
+        "构件/设备",
+        "string",
+        "—",
+        ""
+      ],
+      [
+        "status",
+        "状态",
+        "enum",
+        "正常/失效/破坏",
+        ""
+      ],
+      [
+        "drain_capacity",
+        "排水能力",
+        "float",
+        "m³/h",
+        ""
+      ],
+      [
+        "monitor",
+        "监测手段",
+        "string",
+        "—",
+        ""
+      ]
+    ],
+    "FW": [
+      [
+        "depth_t",
+        "水深过程 depth(t)",
+        "object",
+        "四阶段参数",
+        "见水深参数化"
+      ],
+      [
+        "d_peak",
+        "峰值水深",
+        "float",
+        "m"
+      ],
+      [
+        "velocity",
+        "流速",
+        "float",
+        "m/s",
+        ""
+      ],
+      [
+        "turbidity",
+        "含砂/浑浊",
+        "enum",
+        "清/浑/含砂",
+        ""
+      ]
+    ],
+    "PP": [
+      [
+        "pop_type",
+        "人群类型",
+        "enum",
+        "乘客/作业人员/公众/救援",
+        ""
+      ],
+      [
+        "pop_count",
+        "人数",
+        "int",
+        "人"
+      ],
+      [
+        "familiarity",
+        "环境熟悉度",
+        "enum",
+        "高/中/低",
+        ""
+      ],
+      [
+        "distribution",
+        "初始分布",
+        "string",
+        "—",
+        ""
+      ]
+    ],
+    "AC": [
+      [
+        "response_time",
+        "响应时间",
+        "float",
+        "min",
+        ""
+      ],
+      [
+        "route_choice",
+        "路径选择",
+        "text",
+        "—",
+        ""
+      ],
+      [
+        "herding",
+        "从众/折返",
+        "enum",
+        "无/从众/折返/其他",
+        ""
+      ],
+      [
+        "evac_status",
+        "疏散结果",
+        "enum",
+        "成功/受阻/遇难",
+        ""
+      ]
+    ],
+    "ER": [
+      [
+        "gov_level",
+        "政府响应级别",
+        "enum",
+        "Ⅰ–Ⅳ/未启动/未明确",
+        ""
+      ],
+      [
+        "ent_level",
+        "企业响应级别",
+        "enum",
+        "一级/二级/未启动/未明确",
+        ""
+      ],
+      [
+        "t_alarm",
+        "报警时间",
+        "datetime",
+        "—",
+        ""
+      ],
+      [
+        "t_start",
+        "响应启动时间",
+        "datetime",
+        "—",
+        ""
+      ]
+    ],
+    "RA": [
+      [
+        "action",
+        "处置动作",
+        "text",
+        "—",
+        ""
+      ],
+      [
+        "t_action",
+        "动作时间",
+        "datetime",
+        "—",
+        ""
+      ],
+      [
+        "resource",
+        "资源/装备",
+        "string",
+        "—",
+        ""
+      ],
+      [
+        "seq",
+        "时序序号",
+        "int",
+        "—",
+        ""
+      ]
+    ],
+    "OC": [
+      [
+        "dead",
+        "死亡人数",
+        "int",
+        "人"
+      ],
+      [
+        "missing",
+        "失踪人数",
+        "int",
+        "人"
+      ],
+      [
+        "injured",
+        "受伤人数",
+        "int",
+        "人"
+      ],
+      [
+        "loss_wan",
+        "直接经济损失",
+        "float",
+        "万元"
+      ],
+      [
+        "interrupt_h",
+        "中断时长",
+        "float",
+        "小时"
+      ],
+      [
+        "evac_success",
+        "疏散成败",
+        "enum",
+        "成功/部分/失败/未明确",
+        ""
+      ]
+    ],
+    "KN": [
+      [
+        "explicit_k",
+        "显性知识",
+        "text",
+        "—",
+        ""
+      ],
+      [
+        "tacit_k",
+        "隐性知识",
+        "text",
+        "—",
+        ""
+      ],
+      [
+        "positive_k",
+        "正向隐性知识",
+        "text",
+        "—",
+        "专家经验"
+      ]
+    ]
+  },
+  "relations": [
+    {
+      "domain": "ME",
+      "relation": "产生来水",
+      "range": "FW",
+      "cardinality": "1:n",
+      "note": "降雨/河水/潮水形成进水来源"
+    },
+    {
+      "domain": "ME",
+      "relation": "诱发",
+      "range": "RS",
+      "cardinality": "1:n",
+      "note": "极端天气暴露设施与管理薄弱点"
+    },
+    {
+      "domain": "RS",
+      "relation": "破坏/失效",
+      "range": "FC",
+      "cardinality": "1:n",
+      "note": "风险源导致挡水/封堵/密封构件失效"
+    },
+    {
+      "domain": "RS",
+      "relation": "导致",
+      "range": "EV",
+      "cardinality": "n:1",
+      "note": "风险源耦合触发事件"
+    },
+    {
+      "domain": "US",
+      "relation": "包含",
+      "range": "FC",
+      "cardinality": "1:n",
+      "note": "地下空间由各类构件组成"
+    },
+    {
+      "domain": "FW",
+      "relation": "淹没",
+      "range": "US",
+      "cardinality": "n:1",
+      "note": "水体以 depth(t) 淹没空间"
+    },
+    {
+      "domain": "FC",
+      "relation": "过水/溃决",
+      "range": "FW",
+      "cardinality": "1:n",
+      "note": "失效构件成为过水通道"
+    },
+    {
+      "domain": "EV",
+      "relation": "发生于",
+      "range": "US",
+      "cardinality": "n:1",
+      "note": "事件定位到地下空间"
+    },
+    {
+      "domain": "EV",
+      "relation": "演化为",
+      "range": "SC",
+      "cardinality": "n:1",
+      "note": "真实事件经参数化成为情景"
+    },
+    {
+      "domain": "SC",
+      "relation": "链式/分支",
+      "range": "SC",
+      "cardinality": "1:n",
+      "note": "情景链前态→后态、情景树分支"
+    },
+    {
+      "domain": "PP",
+      "relation": "初始位于",
+      "range": "US",
+      "cardinality": "n:1",
+      "note": "人群初始分布于空间"
+    },
+    {
+      "domain": "PP",
+      "relation": "执行",
+      "range": "AC",
+      "cardinality": "1:n",
+      "note": "人群产生疏散行为"
+    },
+    {
+      "domain": "AC",
+      "relation": "作用于",
+      "range": "FW",
+      "cardinality": "n:1",
+      "note": "行为受水深等水体条件约束"
+    },
+    {
+      "domain": "ER",
+      "relation": "响应",
+      "range": "EV",
+      "cardinality": "1:1",
+      "note": "针对事件启动响应"
+    },
+    {
+      "domain": "ER",
+      "relation": "实施",
+      "range": "RA",
+      "cardinality": "1:n",
+      "note": "响应组织并实施处置动作"
+    },
+    {
+      "domain": "RA",
+      "relation": "调控",
+      "range": "FW",
+      "cardinality": "1:n",
+      "note": "封堵/抽排改变 depth(t)"
+    },
+    {
+      "domain": "RA",
+      "relation": "引导",
+      "range": "AC",
+      "cardinality": "1:n",
+      "note": "疏散引导改变人群行为"
+    },
+    {
+      "domain": "EV",
+      "relation": "导致",
+      "range": "OC",
+      "cardinality": "1:1",
+      "note": "事件产生后果"
+    },
+    {
+      "domain": "KN",
+      "relation": "指导",
+      "range": "RA",
+      "cardinality": "1:n",
+      "note": "知识支撑处置决策"
+    },
+    {
+      "domain": "KN",
+      "relation": "指导",
+      "range": "AC",
+      "cardinality": "1:n",
+      "note": "知识/经验影响疏散"
+    }
+  ]
+}
