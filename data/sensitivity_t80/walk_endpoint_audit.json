@@ -1,0 +1,12 @@
+{
+  "runs": 150,
+  "source_sha256": "cc053a6eebf78d38cd6cb050c976d5badd5269fe1714c39afeb149d0cd26f134",
+  "reference_count_mismatches": 0,
+  "extra_active_fatality_triggers": 0,
+  "extra_stranded_hold_triggers": 0,
+  "individual_finalizer_differences": 0,
+  "safe": 20119,
+  "deceased": 2073,
+  "in": 488,
+  "scope": "The two finalizers are compared on the same pre-finalization WALK states. This is not an individual trajectory comparison between WALK and FINE."
+}

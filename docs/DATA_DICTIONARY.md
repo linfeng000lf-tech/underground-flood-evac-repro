@@ -21,7 +21,7 @@ key.
 | n | Headcount of the run |
 | evacuated | Self-evacuation or guided walking exit count (includes `guided_exit`) |
 | rescued | Agents completing a safe departure via rescue transfer |
-| stranded | Terminal stranded agents: agents not completing safe departure and not accounted for by rescue transfer; reachable-but-waiting-capacity agents may also fall here, so this is not limited to "outside the rescue-reachable component" |
+| stranded | Stranded agents at observation: agents not completing safe departure and not accounted for by rescue transfer; reachable-but-waiting-capacity agents may also fall here, so this is not limited to "outside the rescue-reachable component" |
 | deceased | Fatality-proxy count (model depth-threshold proxy, not an empirical drowning threshold) |
 | alive_in | Still on-site at the observation endpoint, safe departure not completed |
 | safe | Safe-departure count = evacuated + rescued |
@@ -82,7 +82,7 @@ logs are not required for it.
 | guided_exit / self_evac | Guided walking exit / self-evacuation split |
 | potential_reachable | Separate "currently reachable safe exit" indicator, not equivalent to having left |
 
-Comparison chain: FINE−BASE = check interval; WALK−FINE = transfer mode;
+Comparison chain: FINE−BASE = check interval; WALK−FINE = explicit guided walking together with its documented endpoint rules;
 WALK−BASE = combined control of both changes (not a single-variable ablation).
 Pair-by-pair: FINE−BASE safe/death/in are equal on all 150 pairs; WALK−FINE
 keeps the death count equal on every pair while safe and in differ on 32 pairs.
@@ -90,7 +90,7 @@ keeps the death count equal on every pair while safe and in differ on 32 pairs.
 ## 5. Protocol and prompts
 
 - `config/protocol/formal_protocol.json`: v20261019_formal frozen protocol
-  (scenarios, capacity, endpoint, repeats, fault rules).
+  (retrospective as-executed record of scenarios, capacity, endpoints, repeats and fault rules; not a preregistration).
 - `prompts/`: decision and extraction prompt text.
 - `data/knowledge/`: crowd-profile distribution, synonym dictionary, scenario
   ontology, knowledge base, spatial/motion parameters.
@@ -103,3 +103,56 @@ keeps the death count equal on every pair while safe and in differ on 32 pairs.
   limited sample and does not support broad generalization.
 - This package excludes raw per-event logs, API request/response, retry-usage
   detail, and keys.
+
+
+## 6. Actual configuration and network
+
+`config/scenarios/main_paired25.json` maps all 25 identifiers to their actual
+configuration dictionaries. `depth_override.t_seep=5` is the transition from
+initial seepage to main rise. Inlet depth grows from zero at minute 0 to
+`d0=0.03 m` at minute 5. Node depth uses its stated lag and coefficient.
+`exit_width` modifies gate and stair bottlenecks. It is not a staffing intervention.
+`fam_frac` overrides nonstaff familiarity. `station_network.json` gives ten nodes
+and two exits. Stored profile mobility factors are not applied by movement.
+
+## 7. Main process aggregates
+
+`data/clean_main/process_runs_300.csv` has one row per `(model, cid, seed)` for
+DeepSeek and Qwen. `first_decision_n` equals initial headcount and counts each
+agent's first successful decision, recorded at step 0. `first_evacuation_action_n`
+is the sum of immediate evacuation, nearest exit and following guidance choices.
+`first_wait_n` counts initial wait choices. `autonomous_exit_n` counts successful
+exits. `exits_before_minute5_n` counts their saved exit times strictly below 5 min.
+The early-exit denominator is `autonomous_exit_n`, not initial headcount.
+
+`exit_time_histogram.csv` is keyed by `(model, exit_time_min)` and contains positive
+integer `count`. Times retain the rounding in saved summaries. Expanding these
+frequencies reproduces pooled medians. A mean of run medians is a different
+statistic and is not substituted for that pooled median.
+
+## 8. Ablation process and retrieval aggregates
+
+`data/ablation_kb/process_runs_72.csv` is keyed by
+`(provider, cid, seed, condition)`. Counts `wait_event_n`,
+`llm_target_nonnull_n` and `rule_target_nonnull_n` have denominator
+`successful_decision_events`. Each is divided within its run before averaging.
+`median_autonomous_exit_min` is the median of saved successful-exit times within
+that run. Comparing its condition means does not compare the same individuals.
+
+`knowledge_selection_coverage.csv` is keyed by `(provider, item_id)`.
+`retrieved_event_n` counts selections reconstructed from recorded ON tags and the
+unchanged ranking rule. `on_decision_events` gives that provider's ON event count.
+These are reconstruction outputs, not raw request transcripts. Zero selections
+do not show that an item is generally irrelevant. `knowledge_example.json`
+records the example in Table 2, with synthetic agent identifier and the same scope.
+
+## 9. Endpoint branch audit
+
+`data/sensitivity_t80/walk_endpoint_audit.csv` has 150 `(cid, seed)` rows.
+`extra_active_fatality_triggers` and `extra_stranded_hold_triggers` count additional
+WALK finalizer branches relative to FINE's current-depth-only stranded finalizer.
+`individual_finalizer_differences` compares finalizers on the same pre-finalization
+WALK states. It does not compare identities or trajectories across variants.
+All three audit counts are zero in the tested runs. `last_water_time_min` is the
+last simulated water-update time and can precede the configured horizon because
+of early stopping or the half-open simulation grid.

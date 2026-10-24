@@ -1,35 +1,196 @@
 {
-  "batch_id": "FORMAL_PAIR25_PLACEHOLDER",
-  "status": "DRAFT_FROZEN_OFFLINE",
-  "inherits_freeze": "code/versions/v20261018_cache1",
-  "inherit_note": "引擎代码、静态输入、提示词、知识库、依赖与库版本全部沿用 v20261018_cache1 的哈希；运行前先按 cache1/manifest.json 校验 21 个冻结文件 MATCH，不一致即停止，不混用未冻结副本。本文件只登记新批次的种子、配对与运行时记录位。",
-  "purpose": "修正统一引擎下的同协议三模型比较：规则参考 + DeepSeek + Qwen，同 cid 同 seed 配对；知识消融、两项敏感性另立独立版本，不替换本主模型。",
-  "scenarios": {
-    "main_paired25": {
-      "cids_ref": "v20261018_cache1/protocol.json -> scenarios.main_paired25.cids (25)",
-      "seeds_list": [20261011, 20261023, 20261035, 20261047, 20261059, 20261071],
-      "seed_note": "8位固定整数、非时钟、可复现；基值202610+间隔12，6个独立RNG流；不复用20241001-06。seed锁画像序列与初始位置，不传入LLM采样。",
-      "models": {
-        "rule_reference": {"use_llm": false, "note": "同引擎同cid同seed新重跑，不直接搬旧0.711；旧0.711为已发表规则主结果保留"},
-        "deepseek-chat": {"provider": "deepseek", "base_url": "https://api.deepseek.com"},
-        "qwen-plus": {"provider": "qwen", "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1"}
+  "batch_id": "FORMAL_MAIN_CLEAN_PAIR25",
+  "status": "COMPLETED_AS_EXECUTED",
+  "documented_on": "2026-10-24",
+  "record_type": "Retrospective record of executed methods, not a preregistration.",
+  "archived_plan": "archive/formal_protocol_planned_v20261019.json",
+  "main": {
+    "cids": [
+      "EXP-001",
+      "EXP-005",
+      "EXP-007",
+      "EXP-014",
+      "EXP-021",
+      "EXP-022",
+      "EXP-025",
+      "EXP-028",
+      "EXP-029",
+      "EXP-033",
+      "EXP-036",
+      "EXP-037",
+      "EXP-039",
+      "EXP-041",
+      "EXP-045",
+      "EXP-049",
+      "EXP-050",
+      "EXP-055",
+      "EXP-063",
+      "EXP-071",
+      "EXP-088",
+      "EXP-090",
+      "EXP-092",
+      "EXP-095",
+      "EXP-096"
+    ],
+    "seeds": [
+      20261011,
+      20261023,
+      20261035,
+      20261047,
+      20261059,
+      20261071
+    ],
+    "scenario_configuration": "../scenarios/main_paired25.json",
+    "models": {
+      "rule_reference": {
+        "use_llm": false
       },
-      "pairing": "规则参考/DS/QW 三模型共用同一 (cid, seed)，同一批人与初始位置，仅决策层不同；跨模型差值同 cid 同 seed 配对。"
-    }
+      "deepseek": {
+        "requested_model": "deepseek-chat",
+        "returned_model": "deepseek-flash"
+      },
+      "qwen": {
+        "requested_model": "qwen-plus",
+        "returned_model": "qwen-plus"
+      }
+    },
+    "runs_per_model": 150,
+    "agent_instances_per_model": 22680,
+    "pairing_key": [
+      "cid",
+      "seed"
+    ],
+    "sampling": "New remote calls without historical response-cache reuse. The simulation seed is not passed as a provider sampling seed.",
+    "temperature": 0.7,
+    "max_output_tokens": 2000,
+    "decision_interval_s": 30,
+    "calm_decision_interval_s": 120,
+    "identity_scope": "Requested and returned service identifiers do not lock remote model weights. Event logs do not independently establish provider weight versions or call dates.",
+    "fault_policy": "Exclude partial, failed, or heuristic-fallback runs. Use zero-fallback completed replacement runs for the three fault keys.",
+    "replacement_keys": [
+      {
+        "cid": "EXP-049",
+        "seed": 20261059
+      },
+      {
+        "cid": "EXP-088",
+        "seed": 20261011
+      },
+      {
+        "cid": "EXP-095",
+        "seed": 20261047
+      }
+    ]
   },
-  "observation_endpoint": "配对25 T=170min（max(150,max rmin=50)+window120）；不利族(rmin=90)不同T分开报告。",
-  "outcomes_five_classes": "self_evacuated / rescued(instantaneous_guided + capacity_rescue) / deceased / stranded / alive_in；partial/failed 完整报告，只在 complete 上算主结局率。",
-  "runtime_record_slots": {
-    "model_version_header": "每次调用记录响应头/返回的模型版本标识，填入运行日志；协议不锁定远端快照",
-    "request_id": "记录请求ID",
-    "raw_response": "留存原始响应体与 parsed_response；失败响应也落盘",
-    "usage": "prompt/completion/total tokens 按事件累加并独立持久化账本"
+  "observation_endpoint": {
+    "rule": "rescue_min + rescue_window, or 150 minutes when rescue_min is null",
+    "rescue_window_min": 120,
+    "configured_endpoints_min": [
+      140,
+      155,
+      170
+    ],
+    "early_stop": "At an assessment check when every agent is evacuated, rescued, or deceased.",
+    "step_note": "The loop evaluates times from zero up to, but not including, the configured endpoint. Physical updates use a 10 second step."
   },
-  "forbidden": [
-    "不为模型差异改规则/提示词/阈值",
-    "不扩厂商/扩情景",
-    "不把缓存复用当独立LLM重复，不静默回退规则模型掩盖API失败",
-    "不恢复旧P1完整轨迹",
-    "partial 不进最终结局比较"
-  ]
+  "physical_rules": {
+    "time_step_s": 10,
+    "main_assessment_interval_s": 60,
+    "inlet_initial_depth_at_minute5_m": 0.03,
+    "inlet_initial_seepage": "Depth grows linearly from zero at minute 0 to 0.03 m at minute 5.",
+    "flat_dry_speed_m_s": 1.0,
+    "stair_dry_speed_m_s": 0.45,
+    "profile_speed_multiplier_applied": false,
+    "flat_wading_limit_m": 0.7,
+    "stair_wading_limit_m": 0.3,
+    "exit_closure_depth_m": 0.3,
+    "effective_bottleneck_width_m": [
+      0.8,
+      4.0
+    ],
+    "rescue_flat_limit_m": 2.0,
+    "rescue_stair_limit_m": 0.9,
+    "rescue_capacity_people_per_min": 3,
+    "adult_fatality_depth_proxy_m": 1.37,
+    "child_fatality_depth_proxy_m": 1.0,
+    "cumulative_fatality_timer_s": 600,
+    "timer_rule": "Accumulates only while stranded above the individual depth proxy. It is distinct from general wet exposure and does not reset.",
+    "rescue_order": [
+      "instantaneously transfer reachable active agents without consuming extraction capacity",
+      "assess unreachable stranded agents using current depth OR cumulative fatality timer",
+      "extract reachable stranded agents using available capacity, deeper agents first"
+    ],
+    "outside_window_fatality": "Stranded agents: current depth above proxy OR cumulative fatality timer at least 600 s.",
+    "finalizer": "Remaining stranded agents: current depth above proxy only."
+  },
+  "outcomes": {
+    "raw_states": [
+      "in",
+      "evacuated",
+      "stranded",
+      "rescued",
+      "deceased"
+    ],
+    "safe": "evacuated + rescued",
+    "alive_on_site": "in + stranded",
+    "rescued": "Instantaneous guided transfer plus completed capacity-limited extraction."
+  },
+  "ablation": {
+    "cids": [
+      "EXP-095",
+      "EXP-096",
+      "EXP-021",
+      "EXP-005",
+      "EXP-090",
+      "EXP-033"
+    ],
+    "seeds": [
+      20261011,
+      20261035,
+      20261059
+    ],
+    "runs": 72,
+    "order": "ON before OFF within a model, scenario, and seed block. Order was not randomized.",
+    "switch": "OFF passes an empty retrieved knowledge list. Prompts, profiles, physical rules and decision intervals remain unchanged.",
+    "process_data": "../../data/ablation_kb/process_runs_72.csv",
+    "knowledge_selection_data": "../../data/ablation_kb/knowledge_selection_coverage.csv"
+  },
+  "sensitivity": {
+    "runs_per_variant": 150,
+    "variants": [
+      "BASE",
+      "FINE",
+      "WALK"
+    ],
+    "fine": "10 second rescue and fatality checks with capacity accrual proportional to elapsed time.",
+    "walk": "Explicit guided walking on the FINE clock. Its endpoint rules additionally assess unreachable active agents and the cumulative timer of stranded agents.",
+    "endpoint_audit": "../../data/sensitivity_t80/walk_endpoint_audit.json"
+  },
+  "statistics": {
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20261022,
+    "pairing_key": [
+      "cid",
+      "seed"
+    ],
+    "cluster": "Resample whole scenarios retaining their six repeats."
+  },
+  "code_hashes": {
+    "22_space_env.py": "aeeb42ee0dfe8256ac647ea7b5c982fb74bac7fc1e9971123349403d3ec88974",
+    "23_profiles.py": "54eddb5d824859475f22c838347d0f27b7c5aa566e863cf0d35e467d82f803eb",
+    "24_knowledge_base.py": "003693cf651b2294c9b3e4bba2eadcc3479ca62e402b655286082d782db98e1a",
+    "25_cognitive_agent.py": "f378b712833cf630417f2c615aae9f22c35401b7b0ab6541d1b4631687fe1cfd",
+    "26_mesa_engine.py": "46388aa68cf3bb90aa3534567c771217b86877a1331b0144e99f10bab0a6669e",
+    "hydro.py": "89f0ad12d7c4f4eb7c8767d80f77ee67129c58024082ba0645a8ee8cf77bbe1e",
+    "_timeline_fix.py": "6467abe793da9c1a459969811ad841c550f04687f4d636aa20e162862613b0a3",
+    "_t78_llm.py": "7e8043907440e0291d8e253aaea51c017542d211cd4f9e0cf4675b486b43dfd9",
+    "_t78_rule.py": "b3fad99de682a5a51f5cbeff442100d087b92b5f2b0feac2ad4ffc615e0a9e23",
+    "_t79_kb_core.py": "f9f992ad6df236557d87c57127be34d712db22ee797a8b2a30d842a318490612",
+    "_t87_clean_rerun.py": "e3e210fb6001c49394850e876565b1dd57c5c4f366660724455208a016c78471"
+  },
+  "record_retention": {
+    "published": "Aggregated outcomes, process summaries, exit-time histograms, prompts, knowledge inputs and offline scripts.",
+    "not_published": "Formal engine, runners and per-event request/response transcripts.",
+    "local_logs": "Retained decision-event metadata do not contain full raw requests, raw responses, commitment histories or complete retry usage."
+  }
 }

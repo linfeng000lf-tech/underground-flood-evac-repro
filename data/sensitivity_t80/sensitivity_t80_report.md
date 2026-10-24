@@ -23,7 +23,7 @@
 
 对比链：
 - **FINE − BASE = 检查间隔**（二者都瞬时引导 comp 内 in → rescued）。
-- **WALK − FINE = 转移方式**（同 10s 检查，仅瞬时引导 vs 实际步行）。
+- **WALK − FINE = 引导步行及所述终点规则**（同 10s 检查；WALK 另有终点检查，见下文审计）。
 - **WALK − BASE = 检查间隔 + 转移方式联合**，仅作联合对照，不称单一变量消融。
 
 ## 二、汇总与每 run 均值（离开时刻为分钟，仅在该类有个体时给出）
@@ -88,3 +88,17 @@
 - 分组（edge/high3/mild）为事后按规则模型死亡划分，非预先注册的物理严重性分层。
 - 种子重置为本次敏感性脚本内部措施；BASE 最终计数与正式 #78 规则参考 0 不匹配只证明最终计数一致，不证明正式批次过程字段均不受同类顺序影响。
 - 死亡"配对计数相同"未按个体 ID 核对状态转换，不排除不同个体间抵消；本报告不下"同一批个体死亡"的结论。
+
+
+## 七、终点分支补充审计（2026-10-24）
+
+WALK 的 walk_finalize 与 FINE 的 rescue_finalize 不完全相同。
+前者还检查不可达 in 个体，并对 stranded 检查 lethal_s；后者在终点仅检查
+stranded 的当前水深。不得把两段函数概括为在所有情况下完全相同。
+
+本次以未改动的 WALK 实现离线重放全部 150 次，并在同一批终点前 WALK 状态上
+比较两种 finalizer。extra_active_fatality_triggers=0、
+extra_stranded_hold_triggers=0、individual_finalizer_differences=0。
+150 次结局计数与已发布 WALK 数据一致。证据见 walk_endpoint_audit.csv/json。
+这一结果只限定终点处理，不是 WALK 与 FINE 逐个体轨迹或死亡身份比较，
+也不证明一般情形的规则等价。主数值未变。

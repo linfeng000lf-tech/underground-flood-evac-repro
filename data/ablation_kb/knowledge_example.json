@@ -1,0 +1,21 @@
+{
+  "model": "deepseek",
+  "cid": "EXP-005",
+  "seed": 20261011,
+  "condition": "on",
+  "step": 0,
+  "simulated_agent_id": 183,
+  "local_depth_m": 0.0,
+  "broadcast": false,
+  "tags": [
+    "熟悉度"
+  ],
+  "reconstructed_selected_item_ids": [
+    "K14"
+  ],
+  "action": "wait_and_see",
+  "generated_target": null,
+  "rule_selected_next_node": null,
+  "interpretation": "Illustrates retrieval and one observed action. It is not evidence that this item caused the action or that movement occurred.",
+  "reconstruction": "Selected identifiers reconstructed from saved tags and unchanged deterministic retrieval code. Full request text was not retained."
+}

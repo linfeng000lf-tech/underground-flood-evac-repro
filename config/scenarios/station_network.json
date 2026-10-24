@@ -1,0 +1,162 @@
+{
+  "nodes": [
+    {
+      "id": "gate_A",
+      "label": "A出入口",
+      "level": 0,
+      "nominal_capacity": 60,
+      "is_exit": true,
+      "type": "gate"
+    },
+    {
+      "id": "gate_B",
+      "label": "B出入口",
+      "level": 0,
+      "nominal_capacity": 60,
+      "is_exit": true,
+      "type": "gate"
+    },
+    {
+      "id": "wind",
+      "label": "风亭",
+      "level": 0,
+      "nominal_capacity": 20,
+      "is_exit": false,
+      "type": "vent"
+    },
+    {
+      "id": "corr_A",
+      "label": "A口通道",
+      "level": -1,
+      "nominal_capacity": 120,
+      "is_exit": false,
+      "type": "flat"
+    },
+    {
+      "id": "corr_B",
+      "label": "B口通道",
+      "level": -1,
+      "nominal_capacity": 120,
+      "is_exit": false,
+      "type": "flat"
+    },
+    {
+      "id": "hall",
+      "label": "站厅",
+      "level": -1,
+      "nominal_capacity": 400,
+      "is_exit": false,
+      "type": "flat"
+    },
+    {
+      "id": "stair_A",
+      "label": "A楼扶梯",
+      "level": -1,
+      "nominal_capacity": 50,
+      "is_exit": false,
+      "type": "stair"
+    },
+    {
+      "id": "stair_B",
+      "label": "B楼扶梯",
+      "level": -1,
+      "nominal_capacity": 50,
+      "is_exit": false,
+      "type": "stair"
+    },
+    {
+      "id": "platform",
+      "label": "站台",
+      "level": -2,
+      "nominal_capacity": 500,
+      "is_exit": false,
+      "type": "flat"
+    },
+    {
+      "id": "interval",
+      "label": "区间隧道",
+      "level": -2,
+      "nominal_capacity": 300,
+      "is_exit": false,
+      "type": "flat"
+    }
+  ],
+  "edges": [
+    {
+      "a": "gate_A",
+      "b": "corr_A",
+      "length_m": 15
+    },
+    {
+      "a": "gate_B",
+      "b": "corr_B",
+      "length_m": 15
+    },
+    {
+      "a": "corr_A",
+      "b": "hall",
+      "length_m": 10
+    },
+    {
+      "a": "corr_B",
+      "b": "hall",
+      "length_m": 10
+    },
+    {
+      "a": "hall",
+      "b": "stair_A",
+      "length_m": 8
+    },
+    {
+      "a": "hall",
+      "b": "stair_B",
+      "length_m": 8
+    },
+    {
+      "a": "stair_A",
+      "b": "platform",
+      "length_m": 8
+    },
+    {
+      "a": "stair_B",
+      "b": "platform",
+      "length_m": 8
+    },
+    {
+      "a": "platform",
+      "b": "interval",
+      "length_m": 50
+    },
+    {
+      "a": "wind",
+      "b": "hall",
+      "length_m": 30
+    }
+  ],
+  "depth_lag_min": {
+    "gate_A": 0,
+    "gate_B": 0,
+    "wind": 0,
+    "corr_A": 3,
+    "corr_B": 3,
+    "hall": 4,
+    "stair_A": 6,
+    "stair_B": 6,
+    "platform": 8,
+    "interval": 8
+  },
+  "base_depth_coefficient": {
+    "gate_A": 1.0,
+    "gate_B": 0.0,
+    "wind": 0.0,
+    "corr_A": 0.9,
+    "corr_B": 0.0,
+    "hall": 0.9,
+    "stair_A": 0.95,
+    "stair_B": 0.0,
+    "platform": 1.0,
+    "interval": 0.0
+  },
+  "entry_rule": "The configured entry node coefficient is set to one. Other coefficients remain as listed.",
+  "speed_note": "The executed movement rule does not multiply speed by the profile mobility coefficient."
+}

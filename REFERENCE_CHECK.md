@@ -42,3 +42,16 @@
 2. 经典无 DOI 文献按 AEI 目标期刊体例统一卷期页与著录格式。
 3. 标准类 GB 50157-2013、GB/T 33668-2017 按目标期刊标准著录格式补编号年份。
 4. 投稿前对最终文献列表再做一次出版社页面抽查（尤其在线优先、卷期变更项），并按需核对引用内容与原文。
+
+
+## 四、2026-10-24 参数含义复核
+
+- Hu, Tang and He (2022), official full text, Sections 1.2 and 1.3:
+  https://journal.szu.edu.cn/upload/html/202202007.html . Supports flat speed
+  60 m/min, stair speed 27 m/min, linear reductions and limits 0.70/0.30 m.
+- Liu, Ren and Chen (2024), official full text, Section 2.3:
+  https://onlinelibrary.wiley.com/doi/full/10.1111/jfr3.12979 . Gives neck-depth
+  instability values 1.39 m for adults and 1.01 m for children. It does not
+  validate the executed model's exact 1.37/1.0 m proxies or immediate mortality.
+  The manuscript now distinguishes the literature concept from fixed model
+  assumptions. Executed model parameters and published outcomes were not changed.
